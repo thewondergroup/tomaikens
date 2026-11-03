@@ -49,9 +49,9 @@
   if(reduce){ mems[0].classList.add('on'); }
   else{
     let i=0;
-    const HOLD=3600, GAP=1100;
+    const HOLD=3400, GAP=900;
     function show(){ const m=mems[i]; m.classList.remove('off'); m.classList.add('on');
       setTimeout(()=>{ m.classList.remove('on'); m.classList.add('off'); setTimeout(()=>{ m.classList.remove('off'); i=(i+1)%mems.length; show(); }, GAP); }, HOLD); }
-    setTimeout(show, 2600);
+    setTimeout(show, 4200);
   }
 })();

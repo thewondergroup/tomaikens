@@ -298,21 +298,8 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
 # ---------------- ABOUT ----------------
 PAGES["about.html"] = ("About — Muse by Tom Aikens",
  "The story of Muse: a 25-cover converted mews house in Belgravia, Tom Aikens' return to experience-led fine dining, and the team who run it.",
- page_head("About","A restaurant built from memory.",img="dining-area.jpg",alt="The dining room at Muse",lede="Muse is Tom Aikens' return to experience-led fine dining: an intimate, 25-cover converted mews house where every menu traces the moments and people that shaped his life and his cooking.") + f'''
+ page_head("About","Tom Aikens, and the house he built from memory.",img="img2.jpg",alt="Tom Aikens at the pass",lede="The youngest British chef to hold two Michelin stars, back at the pass in a 25-cover mews house where every menu traces the moments and people that made him.") + f'''
 <section>
-  <div class="grid g-2">
-    {ph("drinks-cab.jpg","The drinks cabinet at Muse","tall plx",'data-plx="16"')}
-    <div>
-      <div class="chapter">The house</div>
-      <h2>A Georgian mews on Groom Place.</h2>
-      <p class="lede" style="margin:20px 0 24px">Muse opened in January 2020 and was awarded its Michelin star within the year. Grace Dent named it her opening of the year.</p>
-      <p>Two floors of a converted mews house, with an open kitchen and counter on the ground floor, a lounge, and a private dining room upstairs. Interiors are by Rebecca Korner of Körner Interiors, blending the classic and the avant-garde; the room won at the Restaurant &amp; Bar Design Awards in 2021.</p>
-      <div class="facts"><div>25<small>covers</small></div><div>2<small>floors</small></div><div>5<small>AA Rosettes</small></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="tint">
   <div class="grid g-21">
     <div>
       <div class="chapter">Tom Aikens</div>
@@ -323,6 +310,19 @@ PAGES["about.html"] = ("About — Muse by Tom Aikens",
       <blockquote class="pull">“My mother taught me to bake when I was eight. My father taught me that a bottle of wine could be a map of somewhere. Everything else followed.”<cite>Tom Aikens</cite></blockquote>
     </div>
     <div>{ph("tom.jpg","Tom Aikens","tall plx",'data-plx="18"')}<div class="grid" style="grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">{ph("mom-dad.jpg","Tom and Robert with their mother, Tania","square")}{ph("img4.jpg","Tom plating at the pass","square")}</div></div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="grid g-2">
+    {ph("drinks-cab.jpg","The drinks cabinet at Muse","tall plx",'data-plx="16"')}
+    <div>
+      <div class="chapter">The house</div>
+      <h2>A Georgian mews on Groom Place.</h2>
+      <p class="lede" style="margin:20px 0 24px">Muse opened in January 2020 and was awarded its Michelin star within the year. Grace Dent named it her opening of the year.</p>
+      <p>Two floors of a converted mews house, with an open kitchen and counter on the ground floor, a lounge, and a private dining room upstairs. Interiors are by Rebecca Korner of Körner Interiors, blending the classic and the avant-garde; the room won at the Restaurant &amp; Bar Design Awards in 2021.</p>
+      <div class="facts"><div>25<small>covers</small></div><div>2<small>floors</small></div><div>5<small>AA Rosettes</small></div></div>
+    </div>
   </div>
 </section>
 

@@ -39,8 +39,8 @@ b,strong{font-weight:500}
 .book{border:1px solid var(--ink);padding:11px 22px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:background .3s,color .3s;white-space:nowrap}
 .book:hover{background:var(--ink);color:var(--paper)}
 .nav-right{display:flex;align-items:center;gap:22px}
-.burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;background:none;border:0;cursor:pointer;padding:0}
-.burger span{display:block;height:1px;background:currentColor;transition:transform .3s,opacity .3s}
+.burger{display:flex;flex-direction:column;justify-content:center;gap:6px;width:34px;height:34px;background:none;border:0;cursor:pointer;padding:0;color:inherit}
+.burger span{display:block;height:2px;background:currentColor;transition:transform .3s,opacity .3s}
 .burger:hover span:nth-child(2){transform:scaleX(.6);transform-origin:left}
 @media (max-width:900px){.navlinks{display:none}}
 @media (max-width:560px){.nav .book{display:none}}

@@ -38,7 +38,7 @@ def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schem
 '''
 
 def header(current):
-    links = "".join(f'<a href="{h}"{" class=on" if h==current else ""}>{t}</a>' for h,t in NAV if h in ("menus.html","whats-on.html","private-hire.html","contact.html"))
+    links = "".join(f'<a href="{h}"{" class=on" if h==current else ""}>{t}</a>' for h,t in NAV if h in ("about.html","menus.html","whats-on.html","private-hire.html","contact.html"))
     dlinks = "".join(f'<a href="{h}">{t}</a>' for h,t in NAV)
     return f'''<header class="nav" id="nav">
   <a href="index.html" class="brand"><img src="img/logo.png" alt="Muse by Tom Aikens" class="logo"><img src="img/michelin.png" alt="One Michelin star" class="star-mark" title="One Michelin star"></a>

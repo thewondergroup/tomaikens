@@ -19,7 +19,7 @@ def head(title, desc):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=11">
+<link rel="stylesheet" href="css/site.css?v=12">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
@@ -148,7 +148,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
   <div class="bg" id="herobg"><video id="herovid" muted loop playsinline preload="auto" poster="img/hero-poster.jpg" aria-hidden="true"><source src="img/hero.mp4" type="video/mp4"></video></div>
   <div class="hero-title" id="title">
     <h1 class="raw"><img src="img/logo.png" alt="Muse" class="script"></h1>
-    <div class="by">BY TOM AIKENS &nbsp;·&nbsp; BELGRAVIA</div>
+    <div class="by"><span class="by-pre">by</span> <span class="by-name">Tom Aikens</span><span class="by-place">Belgravia, London</span></div>
     <p class="thesis">Every dish here began as a memory.</p>
     <div class="memories" aria-live="polite">
       <p class="memory">Baking with my mother, Tania. Norfolk, aged eight.</p>

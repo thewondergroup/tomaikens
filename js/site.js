@@ -43,7 +43,7 @@
   if(!hero) return;
   const mems=[...document.querySelectorAll('.memory')], title=document.getElementById('title'), skip=document.getElementById('skip'), bg=document.getElementById('herobg'), lady=document.getElementById('lady'), vid=document.getElementById('herovid'), hm=document.querySelector('.memories');
   let timers=[], done=false;
-  mems.forEach(m=>{ m.innerHTML=m.textContent.split(' ').map((w,i)=>`<span class="w" style="transition-delay:${i*70}ms">${w}</span>`).join(' '); });
+  mems.forEach(m=>{ m.innerHTML=m.textContent.split(' ').map((w,i)=>`<span class="w" style="transition-delay:${i*90}ms">${w}</span>`).join(' '); });
   function finish(){
     if(done) return; done=true; timers.forEach(clearTimeout);
     mems.forEach(m=>{m.classList.remove('on');m.classList.add('off')});
@@ -54,8 +54,8 @@
   else{
     bg.classList.add('pre'); if(vid) vid.play().catch(()=>{});
     let t=500;
-    mems.forEach(m=>{ timers.push(setTimeout(()=>m.classList.add('on'),t)); t+=1750; timers.push(setTimeout(()=>{m.classList.remove('on');m.classList.add('off')},t-450)); });
-    timers.push(setTimeout(finish,t+150));
+    mems.forEach(m=>{ timers.push(setTimeout(()=>m.classList.add('on'),t)); t+=3000; timers.push(setTimeout(()=>{m.classList.remove('on');m.classList.add('off')},t-900)); });
+    timers.push(setTimeout(finish,t-300));
   }
   skip.addEventListener('click',finish);
   addEventListener('scroll',()=>{ if(scrollY>40) finish(); },{passive:true,once:true});

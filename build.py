@@ -7,6 +7,7 @@ VOUCH = "https://musebytomaikens.vouchable.co.uk"
 NAV = [("about.html","About"),("menus.html","Menus"),("whats-on.html","What's On"),("private-hire.html","Private Hire"),("suppliers.html","Suppliers"),("gallery.html","Gallery"),("press.html","Press"),("contact.html","Contact")]
 
 BASE = "https://musebytomaikens.co.uk"
+PDF10 = "https://musebytomaikens.co.uk/wp-content/uploads/2026/10/A5-10-Courses-Tasting-14.10.26.pdf"
 SCHEMA = """<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Muse by Tom Aikens","url":"https://musebytomaikens.co.uk/","image":"https://musebytomaikens.co.uk/img/kitchen-counter.jpg","telephone":"+44 20 3301 2903","email":"info@musebytomaikens.co.uk","priceRange":"££££","servesCuisine":"Modern British","address":{"@type":"PostalAddress","streetAddress":"38 Groom Place","addressLocality":"London","addressRegion":"Belgravia","postalCode":"SW1X 7BA","addressCountry":"GB"},"geo":{"@type":"GeoCoordinates","latitude":51.4997,"longitude":-0.1509},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday"],"opens":"12:30","closes":"13:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"18:00","closes":"20:00"}],"acceptsReservations":"https://www.sevenrooms.com/reservations/musebytomaikens","founder":{"@type":"Person","name":"Tom Aikens"},"award":["Michelin star","Five AA Rosettes"],"sameAs":["https://www.instagram.com/musebytomaikens","https://www.facebook.com/Muse-by-Tom-Aikens-106260100800055"]}</script>"""
 def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schema=False):
     url = BASE + "/" + ("" if fname=="index.html" else fname)
@@ -31,7 +32,7 @@ def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schem
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=16">
+<link rel="stylesheet" href="css/site.css?v=17">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
@@ -102,7 +103,7 @@ FOOTER = f'''</main>
     <nav><a href="privacy.html">Privacy</a><a href="careers.html">Careers</a></nav>
   </div>
 </footer>
-<script src="js/site.js?v=13"></script>
+<script src="js/site.js?v=17"></script>
 </body>
 </html>
 '''
@@ -201,33 +202,27 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
     <p class="lede">Tom's menus trace the moments and people that made him a chef. They change with the seasons; this is autumn.</p>
   </div>
   <div class="menu-cards">
-    <a class="mcard" href="menus.html#tasting">
-      <div class="ph"><img src="img/img1.jpg" alt="A course from the tasting menu" loading="lazy"></div>
-      <div class="mc-body">
-        <div class="mc-k">Ten courses</div>
-        <h3>The Tasting Menu</h3>
-        <p>The full story, from the garden in Norfolk to the moors of Yorkshire. Lunch and dinner, Tuesday to Saturday.</p>
-        <div class="mc-foot"><span class="mc-price">£195</span><span class="mc-link">View menu</span></div>
+    <a class="mcard" href="menus.html#tasting"><div class="flip">
+      <div class="face">
+        <div class="ph"><img src="img/img1.jpg" alt="A course from the tasting menu" loading="lazy"></div>
+        <div class="mc-body"><div class="mc-k">Ten courses</div><h3>The Tasting Menu</h3><p>The full story, from the garden in Norfolk to the moors of Yorkshire. Lunch and dinner, Tuesday to Saturday.</p><div class="mc-foot"><span class="mc-price">£195</span><span class="mc-link">View menu</span></div></div>
       </div>
-    </a>
-    <a class="mcard" href="menus.html#lunch">
-      <div class="ph"><img src="img/img3.jpg" alt="A course at lunch" loading="lazy"></div>
-      <div class="mc-body">
-        <div class="mc-k">Six courses</div>
-        <h3>Lunch Tasting</h3>
-        <p>The shorter telling, for a long lunch. Thursday to Saturday.</p>
-        <div class="mc-foot"><span class="mc-price">£105</span><span class="mc-link">View menu</span></div>
+      <div class="face back"><div><div class="mc-k">From the ten courses</div><ol><li><i>From a Humble Beginning</i>Onion, Truffle, Egg Yolk</li><li><i>French Jealousy!</i>Scallop, Artichoke, Apple</li><li><i>Made in Great Britain</i>Grouse, Turnip, Elderberries</li><li><i>Life Has Never Been So Sweet</i>Plum, Cardamom, Grains</li></ol></div><span class="mc-link">All ten courses</span></div>
+    </div></a>
+    <a class="mcard" href="menus.html#lunch"><div class="flip">
+      <div class="face">
+        <div class="ph"><img src="img/img3.jpg" alt="A course at lunch" loading="lazy"></div>
+        <div class="mc-body"><div class="mc-k">Six courses</div><h3>Lunch Tasting</h3><p>The shorter telling, for a long lunch. Thursday to Saturday.</p><div class="mc-foot"><span class="mc-price">£105</span><span class="mc-link">View menu</span></div></div>
       </div>
-    </a>
-    <a class="mcard" href="menus.html#alacarte">
-      <div class="ph"><img src="img/img4.jpg" alt="Sauce poured at the table" loading="lazy"></div>
-      <div class="mc-body">
-        <div class="mc-k">Two or three courses</div>
-        <h3>À la Carte</h3>
-        <p>Choose your own way through the season. Lunch and dinner, Tuesday to Friday.</p>
-        <div class="mc-foot"><span class="mc-price">£160 / £195</span><span class="mc-link">View menu</span></div>
+      <div class="face back"><div><div class="mc-k">From the six courses</div><ol><li><i>Forever Picking</i>Snacks of the season</li><li><i>Making &amp; Breaking</i>Sourdough, cultured butter</li><li><i>The Love Affair Continues</i>Turbot, Duck Confit, Mash</li><li><i>Life Has Never Been So Sweet</i>Plum, Cardamom, Grains</li></ol></div><span class="mc-link">The six courses</span></div>
+    </div></a>
+    <a class="mcard" href="menus.html#alacarte"><div class="flip">
+      <div class="face">
+        <div class="ph"><img src="img/img4.jpg" alt="Sauce poured at the table" loading="lazy"></div>
+        <div class="mc-body"><div class="mc-k">Two or three courses</div><h3>À la Carte</h3><p>Choose your own way through the season. Lunch and dinner, Tuesday to Friday.</p><div class="mc-foot"><span class="mc-price">£160 / £195</span><span class="mc-link">View menu</span></div></div>
       </div>
-    </a>
+      <div class="face back"><div><div class="mc-k">Choose from</div><ol><li><i>To begin</i>Onion, Truffle, Egg Yolk <em style="color:var(--copper)">or</em> Crab, Celeriac, Pear</li><li><i>Then</i>Turbot, Duck Confit, Mash <em style="color:var(--copper)">or</em> Grouse, Turnip, Elderberries</li><li><i>To finish</i>Figs &amp; Leaves <em style="color:var(--copper)">or</em> Plum, Cardamom, Grains</li></ol></div><span class="mc-link">The à la carte</span></div>
+    </div></a>
   </div>
   <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a></div>
 </section>
@@ -268,8 +263,9 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
   </div>
 </section>
 
-<section class="dark" id="press">
-  <div class="grid g-2" style="grid-template-columns:1fr 1fr">
+<section class="dark" id="press" style="padding-top:0">
+  <div class="reel"><span><q>Opening of the year</q><cite>Grace Dent, The Guardian</cite><q>Childhood memories on a plate</q><cite>Metro</cite><q>One of the best chef's tables in London</q><cite>Square Meal</cite><q>Dining gets personal</q><cite>Elite Traveler</cite><q>Among London's most romantic restaurants</q><cite>ELLE</cite></span><span aria-hidden="true"><q>Opening of the year</q><cite>Grace Dent, The Guardian</cite><q>Childhood memories on a plate</q><cite>Metro</cite><q>One of the best chef's tables in London</q><cite>Square Meal</cite><q>Dining gets personal</q><cite>Elite Traveler</cite><q>Among London's most romantic restaurants</q><cite>ELLE</cite></span></div>
+  <div class="grid g-2" style="grid-template-columns:1fr 1fr;margin-top:clamp(60px,8vw,120px)">
     <blockquote class="quote">“Opening of the year.”<cite>Grace Dent, The Guardian</cite></blockquote>
     <blockquote class="quote">One Michelin star, awarded in the restaurant's first year.<cite>Michelin Guide Great Britain &amp; Ireland</cite></blockquote>
   </div>
@@ -376,18 +372,16 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
  page_head("Menus","Each course is a memory, cooked.",img="img1.jpg",alt="A dish from the tasting menu",lede="Tom's menus trace the moments and people that made him a chef — a childhood kitchen in Norfolk, the great Paris and London kitchens, the produce of a small island. Every course carries the title of the memory it comes from.") + f"""
 <nav class="subnav" aria-label="Menus"><a href="#tasting">Ten-course tasting</a><a href="#lunch">Six-course lunch</a><a href="#alacarte">À la carte</a><a href="#wine">Wine</a><a href="#creators">Culinary Creators</a></nav>
 
-<section class="dark" id="tasting">
-  <div class="grid g-2" style="align-items:start">
-    <div class="sticky">
-      <div class="chapter">Autumn · ten courses</div>
-      <h2>The Tasting Menu</h2>
-      <div class="facts"><div>£195<small>per person</small></div><div>Tue – Sat<small>lunch and dinner</small></div></div>
-      <p style="margin-top:28px">The full story in ten courses. The titles are Tom's; the dishes move as the season does.</p>
-      {NOTE}
-      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a><a class="btn" href="https://musebytomaikens.co.uk/wp-content/uploads/2026/10/A5-10-Courses-Tasting-14.10.26.pdf" target="_blank" rel="noopener">Download (PDF)</a></div>
-    </div>
-    {courses_html()}
+<section class="dark" id="tasting" style="padding-bottom:0">
+  <div class="grid g-2" style="align-items:end;margin-bottom:8vh">
+    <div><div class="chapter">Autumn · ten courses · £195</div><h2>The Tasting Menu, chapter by chapter.</h2></div>
+    <div><p class="lede">Scroll slowly. Each course carries the title of the memory it comes from; the dishes move as the season does. Lunch and dinner, Tuesday to Saturday.</p><div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a><a class="btn" href="{PDF10}" target="_blank" rel="noopener">Download (PDF)</a></div></div>
   </div>
+  <div class="chapters">
+    <div class="stage"><div class="ph"><div class="cnum">01</div><div class="frame">{"".join(f'<img src="img/{im}" alt="" loading="lazy">' for im in ["img3.jpg","gallery-1.jpg","img1.jpg","culinary-creators.jpg","img2.jpg","img4.jpg"])}</div></div></div>
+    <ol class="chapter-list">{"".join(f'<li class="chp"><div class="n">Course {i+1:02d} of 10</div><div class="ct">{t}</div><div class="cd">{d}</div><div class="cm">{m}</div></li>' for i,(t,d,m) in enumerate(COURSES))}</ol>
+  </div>
+  <div style="padding:60px 0 clamp(80px,10vw,150px)">{NOTE}</div>
 </section>
 
 <section id="lunch">
@@ -579,8 +573,9 @@ PAGES["suppliers.html"] = ("Suppliers — Muse by Tom Aikens",
 
 # ---------------- GALLERY ----------------
 GAL = [("kitchen-counter.jpg","The counter"),("img1.jpg","Plating at the pass"),("muse-building.jpg","Groom Place"),("img2.jpg","Sauce at the table"),("gallery-1.jpg","Bowls"),("dining-area.jpg","The dining room"),("drinks-cab.jpg","The drinks cabinet"),("img3.jpg","A course"),("private-party-1.jpg","Set for a private dinner"),("gallery-3.jpg","Stacked bowls"),("img4.jpg","Tom plating"),("culinary-creators.jpg","Sourdough and preserves"),("tom.jpg","Tom Aikens")]
+GALCAP=[("kitchen-counter.jpg","The counter","wide"),("img1.jpg","Cod, courgette, nasturtium","wide"),("muse-building.jpg","Groom Place","tall"),("img2.jpg","Tom at the pass","wide"),("tom.jpg","Tom Aikens","tall"),("dining-area.jpg","The dining room","wide"),("drinks-cab.jpg","The drinks cabinet","tall"),("img3.jpg","A course","tall"),("private-party-1.jpg","Set for a private dinner","wide"),("gallery-3.jpg","The counter stools","tall"),("img4.jpg","Sauce at the table","wide"),("gallery-1.jpg","Hand-thrown bowls","tall"),("culinary-creators.jpg","Sourdough and preserves","wide")]
 PAGES["gallery.html"] = ("Gallery — Muse by Tom Aikens","Photographs of Muse by Tom Aikens: the mews house, the counter, the dining room and the food.",
- page_head("Gallery","The house, the counter, the plates.",img="img2.jpg",alt="Sauce at the table",lede="A look inside the mews.") + '<section><div class="masonry">' + "".join(f'<div class="ph reveal{" wide" if s in ("kitchen-counter.jpg","dining-area.jpg","culinary-creators.jpg","private-party-1.jpg") else ""}"><img src="img/{s}" alt="{a}" loading="lazy"></div>' for s,a in GAL) + '</div></section>')
+ page_head("Gallery","The house, the counter, the plates.",img="img2.jpg",alt="Sauce at the table",lede="Drag, or scroll sideways.") + '<section class="strip-wrap"><div class="film-hint"><span>Drag to move</span><span>' + str(len(GALCAP)) + ' photographs</span></div><div class="filmstrip">' + "".join(f'<div class="ph {c}"><img src="img/{f}" alt="{a}" draggable="false"><span class="hshade"></span><span class="hc">{a}</span></div>' for f,a,c in GALCAP) + '</div></section>')
 
 # ---------------- PRESS ----------------
 PRESS = [
@@ -623,8 +618,9 @@ PAGES["press.html"] = ("Press — Muse by Tom Aikens","Reviews, awards and press
     <div>Restaurant &amp; Bar Design Awards<small>Winner, 2021</small></div>
   </div>
 </section>
-<section class="dark" style="padding-top:clamp(60px,7vw,100px)">
-  <div class="chapter">Selected press</div>
+<section class="dark" style="padding-top:0">
+  <div class="reel"><span><q>Opening of the year</q><cite>Grace Dent, The Guardian</cite><q>Childhood memories on a plate</q><cite>Metro</cite><q>One of the best chef's tables in London</q><cite>Square Meal</cite><q>Dining gets personal</q><cite>Elite Traveler</cite><q>Among London's most romantic restaurants</q><cite>ELLE</cite></span><span aria-hidden="true"><q>Opening of the year</q><cite>Grace Dent, The Guardian</cite><q>Childhood memories on a plate</q><cite>Metro</cite><q>One of the best chef's tables in London</q><cite>Square Meal</cite><q>Dining gets personal</q><cite>Elite Traveler</cite><q>Among London's most romantic restaurants</q><cite>ELLE</cite></span></div>
+  <div class="chapter" style="margin-top:clamp(60px,8vw,110px)">Selected press</div>
   <div class="press-list">{press_html}</div>
   <p class="mute" style="margin-top:30px">A fuller archive is available on request.</p>
 </section>

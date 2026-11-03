@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=16">
+<link rel="stylesheet" href="css/site.css?v=17">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
@@ -104,33 +104,27 @@
     <p class="lede">Tom's menus trace the moments and people that made him a chef. They change with the seasons; this is autumn.</p>
   </div>
   <div class="menu-cards">
-    <a class="mcard" href="menus.html#tasting">
-      <div class="ph"><img src="img/img1.jpg" alt="A course from the tasting menu" loading="lazy"></div>
-      <div class="mc-body">
-        <div class="mc-k">Ten courses</div>
-        <h3>The Tasting Menu</h3>
-        <p>The full story, from the garden in Norfolk to the moors of Yorkshire. Lunch and dinner, Tuesday to Saturday.</p>
-        <div class="mc-foot"><span class="mc-price">£195</span><span class="mc-link">View menu</span></div>
+    <a class="mcard" href="menus.html#tasting"><div class="flip">
+      <div class="face">
+        <div class="ph"><img src="img/img1.jpg" alt="A course from the tasting menu" loading="lazy"></div>
+        <div class="mc-body"><div class="mc-k">Ten courses</div><h3>The Tasting Menu</h3><p>The full story, from the garden in Norfolk to the moors of Yorkshire. Lunch and dinner, Tuesday to Saturday.</p><div class="mc-foot"><span class="mc-price">£195</span><span class="mc-link">View menu</span></div></div>
       </div>
-    </a>
-    <a class="mcard" href="menus.html#lunch">
-      <div class="ph"><img src="img/img3.jpg" alt="A course at lunch" loading="lazy"></div>
-      <div class="mc-body">
-        <div class="mc-k">Six courses</div>
-        <h3>Lunch Tasting</h3>
-        <p>The shorter telling, for a long lunch. Thursday to Saturday.</p>
-        <div class="mc-foot"><span class="mc-price">£105</span><span class="mc-link">View menu</span></div>
+      <div class="face back"><div><div class="mc-k">From the ten courses</div><ol><li><i>From a Humble Beginning</i>Onion, Truffle, Egg Yolk</li><li><i>French Jealousy!</i>Scallop, Artichoke, Apple</li><li><i>Made in Great Britain</i>Grouse, Turnip, Elderberries</li><li><i>Life Has Never Been So Sweet</i>Plum, Cardamom, Grains</li></ol></div><span class="mc-link">All ten courses</span></div>
+    </div></a>
+    <a class="mcard" href="menus.html#lunch"><div class="flip">
+      <div class="face">
+        <div class="ph"><img src="img/img3.jpg" alt="A course at lunch" loading="lazy"></div>
+        <div class="mc-body"><div class="mc-k">Six courses</div><h3>Lunch Tasting</h3><p>The shorter telling, for a long lunch. Thursday to Saturday.</p><div class="mc-foot"><span class="mc-price">£105</span><span class="mc-link">View menu</span></div></div>
       </div>
-    </a>
-    <a class="mcard" href="menus.html#alacarte">
-      <div class="ph"><img src="img/img4.jpg" alt="Sauce poured at the table" loading="lazy"></div>
-      <div class="mc-body">
-        <div class="mc-k">Two or three courses</div>
-        <h3>À la Carte</h3>
-        <p>Choose your own way through the season. Lunch and dinner, Tuesday to Friday.</p>
-        <div class="mc-foot"><span class="mc-price">£160 / £195</span><span class="mc-link">View menu</span></div>
+      <div class="face back"><div><div class="mc-k">From the six courses</div><ol><li><i>Forever Picking</i>Snacks of the season</li><li><i>Making &amp; Breaking</i>Sourdough, cultured butter</li><li><i>The Love Affair Continues</i>Turbot, Duck Confit, Mash</li><li><i>Life Has Never Been So Sweet</i>Plum, Cardamom, Grains</li></ol></div><span class="mc-link">The six courses</span></div>
+    </div></a>
+    <a class="mcard" href="menus.html#alacarte"><div class="flip">
+      <div class="face">
+        <div class="ph"><img src="img/img4.jpg" alt="Sauce poured at the table" loading="lazy"></div>
+        <div class="mc-body"><div class="mc-k">Two or three courses</div><h3>À la Carte</h3><p>Choose your own way through the season. Lunch and dinner, Tuesday to Friday.</p><div class="mc-foot"><span class="mc-price">£160 / £195</span><span class="mc-link">View menu</span></div></div>
       </div>
-    </a>
+      <div class="face back"><div><div class="mc-k">Choose from</div><ol><li><i>To begin</i>Onion, Truffle, Egg Yolk <em style="color:var(--copper)">or</em> Crab, Celeriac, Pear</li><li><i>Then</i>Turbot, Duck Confit, Mash <em style="color:var(--copper)">or</em> Grouse, Turnip, Elderberries</li><li><i>To finish</i>Figs &amp; Leaves <em style="color:var(--copper)">or</em> Plum, Cardamom, Grains</li></ol></div><span class="mc-link">The à la carte</span></div>
+    </div></a>
   </div>
   <div class="cta"><a class="btn solid" href="https://www.sevenrooms.com/reservations/musebytomaikens" target="_blank" rel="noopener">Book a table</a></div>
 </section>
@@ -171,8 +165,9 @@
   </div>
 </section>
 
-<section class="dark" id="press">
-  <div class="grid g-2" style="grid-template-columns:1fr 1fr">
+<section class="dark" id="press" style="padding-top:0">
+  <div class="reel"><span><q>Opening of the year</q><cite>Grace Dent, The Guardian</cite><q>Childhood memories on a plate</q><cite>Metro</cite><q>One of the best chef's tables in London</q><cite>Square Meal</cite><q>Dining gets personal</q><cite>Elite Traveler</cite><q>Among London's most romantic restaurants</q><cite>ELLE</cite></span><span aria-hidden="true"><q>Opening of the year</q><cite>Grace Dent, The Guardian</cite><q>Childhood memories on a plate</q><cite>Metro</cite><q>One of the best chef's tables in London</q><cite>Square Meal</cite><q>Dining gets personal</q><cite>Elite Traveler</cite><q>Among London's most romantic restaurants</q><cite>ELLE</cite></span></div>
+  <div class="grid g-2" style="grid-template-columns:1fr 1fr;margin-top:clamp(60px,8vw,120px)">
     <blockquote class="quote">“Opening of the year.”<cite>Grace Dent, The Guardian</cite></blockquote>
     <blockquote class="quote">One Michelin star, awarded in the restaurant's first year.<cite>Michelin Guide Great Britain &amp; Ireland</cite></blockquote>
   </div>
@@ -226,6 +221,6 @@
     <nav><a href="privacy.html">Privacy</a><a href="careers.html">Careers</a></nav>
   </div>
 </footer>
-<script src="js/site.js?v=13"></script>
+<script src="js/site.js?v=17"></script>
 </body>
 </html>

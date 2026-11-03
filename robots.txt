@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://musebytomaikens.co.uk/sitemap.xml

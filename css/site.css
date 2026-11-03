@@ -362,3 +362,18 @@ section:not(.dark) .course .cm{color:var(--ink-2)}
   .dr-meta h4{font-family:var(--sans);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);font-weight:500;margin-bottom:8px}
   .dr-meta a:hover{color:var(--copper)}
 }
+
+/* events */
+.event-rows{display:grid;gap:60px;margin-top:40px}
+.event-row{display:grid;grid-template-columns:5fr 7fr;gap:clamp(28px,4vw,60px);align-items:center}
+.event-row .ph{aspect-ratio:4/3}
+.ev-k{font-family:var(--sans);font-size:12.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:12px;font-weight:500}
+.event-row h2{font-size:clamp(28px,2.8vw,40px)}
+.event-row p{margin-top:16px;color:var(--ink-2)}
+.ev-foot{display:flex;align-items:center;gap:28px;margin-top:26px;flex-wrap:wrap}
+.ev-price{font-family:var(--serif);font-size:30px}
+.ev-price small{display:block;font-family:var(--sans);font-size:12px;color:var(--mist);letter-spacing:.02em}
+@media (max-width:860px){.event-row{grid-template-columns:1fr}}
+/* legal */
+.legal p{max-width:40em;margin-bottom:1.2em;font-size:17px}
+.legal h2{font-size:clamp(28px,3vw,40px);margin-bottom:20px}

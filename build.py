@@ -6,7 +6,10 @@ BOOK = "https://www.sevenrooms.com/reservations/musebytomaikens"
 VOUCH = "https://musebytomaikens.vouchable.co.uk"
 NAV = [("about.html","About"),("menus.html","Menus"),("whats-on.html","What's On"),("private-hire.html","Private Hire"),("suppliers.html","Suppliers"),("gallery.html","Gallery"),("press.html","Press"),("contact.html","Contact")]
 
-def head(title, desc):
+BASE = "https://musebytomaikens.co.uk"
+SCHEMA = """<script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Muse by Tom Aikens","url":"https://musebytomaikens.co.uk/","image":"https://musebytomaikens.co.uk/img/kitchen-counter.jpg","telephone":"+44 20 3301 2903","email":"info@musebytomaikens.co.uk","priceRange":"££££","servesCuisine":"Modern British","address":{"@type":"PostalAddress","streetAddress":"38 Groom Place","addressLocality":"London","addressRegion":"Belgravia","postalCode":"SW1X 7BA","addressCountry":"GB"},"geo":{"@type":"GeoCoordinates","latitude":51.4997,"longitude":-0.1509},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday"],"opens":"12:30","closes":"13:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"18:00","closes":"20:00"}],"acceptsReservations":"https://www.sevenrooms.com/reservations/musebytomaikens","founder":{"@type":"Person","name":"Tom Aikens"},"award":["Michelin star","Five AA Rosettes"],"sameAs":["https://www.instagram.com/musebytomaikens","https://www.facebook.com/Muse-by-Tom-Aikens-106260100800055"]}</script>"""
+def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schema=False):
+    url = BASE + "/" + ("" if fname=="index.html" else fname)
     return f'''<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -14,12 +17,21 @@ def head(title, desc):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Muse by Tom Aikens">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{BASE}/{image}">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FAF8F4">
+{SCHEMA if schema else ""}
 <link rel="icon" href="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=14">
+<link rel="stylesheet" href="css/site.css?v=16">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
@@ -77,7 +89,7 @@ FOOTER = f'''</main>
     </div>
     <div>
       <h4>Muse</h4>
-      <nav><a href="about.html">About</a><a href="suppliers.html">Suppliers</a><a href="whats-on.html">What's on</a><a href="press.html">Press</a><a href="https://musebytomaikens.co.uk/careers" target="_blank" rel="noopener">Careers</a></nav>
+      <nav><a href="about.html">About</a><a href="suppliers.html">Suppliers</a><a href="whats-on.html">What's on</a><a href="press.html">Press</a><a href="careers.html">Careers</a></nav>
     </div>
     <div>
       <h4>News and new dates</h4>
@@ -87,7 +99,7 @@ FOOTER = f'''</main>
   </div>
   <div class="foot-bot">
     <div>© Muse by Tom Aikens</div>
-    <nav><a href="https://musebytomaikens.co.uk/privacy-policy" target="_blank" rel="noopener">Privacy</a></nav>
+    <nav><a href="privacy.html">Privacy</a><a href="careers.html">Careers</a></nav>
   </div>
 </footer>
 <script src="js/site.js?v=13"></script>
@@ -264,6 +276,13 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
   <div class="awards"><div>Michelin star<small>Since 2021</small></div><div>Five AA Rosettes<small>AA Hospitality Awards</small></div><div>Harden's Top 100<small>UK Restaurants</small></div><div>Restaurant &amp; Bar Design Awards<small>Winner, 2021</small></div></div>
 </section>
 
+<section class="tint" id="vouchers" style="padding-top:clamp(60px,7vw,100px);padding-bottom:clamp(60px,7vw,100px)">
+  <div class="grid g-2" style="align-items:center">
+    <div><div class="chapter">Gift vouchers</div><h2>Give someone a night at the counter.</h2></div>
+    <div><p class="lede">A tasting menu, a lunch, or a sum towards either — sent by email, valid for a year.</p><div class="cta"><a class="btn solid" href="{VOUCH}" target="_blank" rel="noopener">Buy a voucher</a></div></div>
+  </div>
+</section>
+
 <section id="visit">
   <div class="grid g-2">
     {ph("dining-area.jpg","The dining room at Muse","wide plx",'data-plx="14"')}
@@ -309,6 +328,11 @@ PAGES["about.html"] = ("About — Muse by Tom Aikens",
     </div>
     <div>{ph("tom.jpg","Tom Aikens","tall plx",'data-plx="18"')}<div class="grid" style="grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">{ph("mom-dad.jpg","Tom and Robert with their mother, Tania","square")}{ph("img4.jpg","Tom plating at the pass","square")}</div></div>
   </div>
+</section>
+
+<section class="statement">
+  <p><i style="color:var(--copper)">muse</i> <span style="font-family:var(--sans);font-size:.6em;letter-spacing:.1em;color:var(--mist)">n.</span> A person or personified force who is the source of creative inspiration for a creative artist.</p>
+  <div class="rule"></div>
 </section>
 
 <section>
@@ -360,7 +384,7 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
       <div class="facts"><div>£195<small>per person</small></div><div>Tue – Sat<small>lunch and dinner</small></div></div>
       <p style="margin-top:28px">The full story in ten courses. The titles are Tom's; the dishes move as the season does.</p>
       {NOTE}
-      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a><a class="btn" href="#">Download (PDF)</a></div>
+      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a><a class="btn" href="https://musebytomaikens.co.uk/wp-content/uploads/2026/10/A5-10-Courses-Tasting-14.10.26.pdf" target="_blank" rel="noopener">Download (PDF)</a></div>
     </div>
     {courses_html()}
   </div>
@@ -374,7 +398,7 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
       <div class="facts"><div>£105<small>per person</small></div><div>Thu – Sat<small>lunch only</small></div></div>
       <p style="margin-top:28px">The shorter telling: six chapters from the ten, for a long lunch in the mews.</p>
       {NOTE}
-      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book lunch</a><a class="btn" href="#">Download (PDF)</a></div>
+      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book lunch</a><a class="btn" href="https://musebytomaikens.co.uk/wp-content/uploads/2026/10/A5-6-Courses-Tasting-14.10.26.pdf" target="_blank" rel="noopener">Download (PDF)</a></div>
     </div>
     {six_html()}
   </div>
@@ -388,7 +412,7 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
       <div class="facts"><div>£160<small>two courses</small></div><div>£195<small>three courses</small></div><div>Tue – Fri<small>lunch and dinner</small></div></div>
       <p style="margin-top:28px">Choose your own way through the season — one dish from each chapter. Snacks and bread come to every table.</p>
       {NOTE}
-      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a><a class="btn" href="#">Download (PDF)</a></div>
+      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a><a class="btn" href="https://musebytomaikens.co.uk/wp-content/uploads/2026/10/A-la-carte-Menu-14.10.26.pdf" target="_blank" rel="noopener">Download (PDF)</a></div>
     </div>
     {alc_html()}
   </div>
@@ -402,7 +426,7 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
       <h2>Pairings built for the table.</h2>
       <p class="lede" style="margin:20px 0 20px">Elisa, our head sommelier, designs pairings to suit all tastes — classic vintages through to organic and biodynamic growers.</p>
       <p>Choose a flight to follow the tasting menu, or go glass by glass. The cellar also opens for the Wine Cellar Series every Tuesday.</p>
-      <div class="cta"><a class="btn" href="#">Wine list (PDF)</a><a class="btn" href="whats-on.html">Wine Cellar Series</a></div>
+      <div class="cta"><a class="btn" href="https://musebytomaikens.co.uk/wp-content/uploads/2026/11/Winelist-31.10.26.pdf" target="_blank" rel="noopener">Wine list (PDF)</a><a class="btn" href="whats-on.html">Wine Cellar Series</a></div>
     </div>
   </div>
 </section>
@@ -418,29 +442,69 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
 
 # ---------------- WHAT'S ON ----------------
 PAGES["whats-on.html"] = ("What's On — Muse by Tom Aikens",
- "Culinary Creators collaborative dinners, the Wine Cellar Series every Tuesday, and Women in Wine at Muse by Tom Aikens.",
- page_head("What's on","Nights that only happen once.",img="kitchen-counter.jpg",alt="The counter at Muse",lede="The Culinary Creators series brings some of Britain's most acclaimed chefs to the counter for a single evening alongside Tom. Then there is the cellar, which opens every Tuesday.") + f'''
+ "The Culinary Creators series with Jackson Boxer, the Wine Cellar Series every Tuesday, and Women in Wine at Muse by Tom Aikens, Belgravia.",
+ page_head("What's on","Nights that only happen once.",img="kitchen-counter.jpg",alt="The counter at Muse",lede="The Culinary Creators series brings some of Britain's most acclaimed chefs to the counter for a single evening alongside Tom. Then there is the cellar, which opens every Tuesday.") + f"""
 <section>
-  {ph("culinary-creators.jpg","The counter at Muse","pano plx",'data-plx="20"')}
-  <div class="events">
-    <div class="event"><h3>Wine Cellar Series</h3><div class="when">Every Tuesday</div><p>An evening built around the cellar: Elisa opens bottles that rarely reach the list, with dishes from the kitchen to match. Small numbers, around the counter.</p><a class="tl" href="{BOOK}" target="_blank" rel="noopener">Book a Tuesday</a></div>
-    <div class="event"><h3>Culinary Creators × Jackson Boxer</h3><div class="when">13 January</div><p>Eight courses, two chefs, one night. Jackson Boxer joins Tom at the counter. The menu is released closer to the date.</p><a class="tl" href="{BOOK}" target="_blank" rel="noopener">Reserve a seat</a></div>
-    <div class="event"><h3>Women in Wine</h3><div class="when">14 October</div><p>A dinner celebrating the women shaping wine today — growers, makers and sommeliers — with a menu written to their bottles.</p><a class="tl" href="{BOOK}" target="_blank" rel="noopener">Reserve a seat</a></div>
+  <div class="chapter">Coming up</div>
+  <div class="event-rows">
+    <article class="event-row" id="jackson-boxer">
+      <div class="ph"><img src="img/culinary-creators.jpg" alt="The counter at Muse" loading="lazy"></div>
+      <div class="ev-body">
+        <div class="ev-k">Culinary Creators · 13 January</div>
+        <h2>Tom Aikens × Jackson Boxer</h2>
+        <p>Eight courses, cooked live at the counter and split evenly between the two chefs. Jackson Boxer is the self-taught chef-restaurateur behind Brunswick House in Vauxhall, Orasay and now Dove in Notting Hill, and Vesper on Exmouth Market — produce-first, seasonal, and with an eye for a room.</p>
+        <div class="ev-foot"><span class="ev-price">£225<small>per person</small></span><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Reserve a seat</a></div>
+      </div>
+    </article>
+    <article class="event-row" id="wine-cellar">
+      <div class="ph"><img src="img/grapes.jpg" alt="Grapes on the vine" loading="lazy"></div>
+      <div class="ev-body">
+        <div class="ev-k">Wine Cellar Series · Every Tuesday</div>
+        <h2>An evening built around the cellar.</h2>
+        <p>Each Tuesday, Tom and head sommelier Elisa Marchini pair wines to the evening's seasonal dishes. The opening run is devoted to the Languedoc — warm-climate Grenache, Syrah and Carignan — with new regions to follow. Small numbers, around the counter.</p>
+        <div class="ev-foot"><span class="ev-price">£65<small>wine pairing, per person, booked in advance</small></span><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a Tuesday</a></div>
+      </div>
+    </article>
   </div>
 </section>
 
-<section class="tint">
-  <div class="chapter">Past collaborations</div>
-  <h2>Who has cooked at the counter.</h2>
-  <div class="index" style="margin-top:40px">
-    <div><b>Merlin Labron-Johnson</b><i>Culinary Creators, 23 September</i></div>
-    <div><b>Ruth Hansom</b><i>Culinary Creators, 2 June</i></div>
-    <div><b>Daniel Clifford</b><i>Culinary Creators, 19 May</i></div>
-    <div><b>Endo Kazutoshi</b><i>Four-hands dinner, July 2024</i></div>
+<section class="dark" id="series">
+  <div class="grid g-2" style="align-items:start">
+    <div class="sticky">
+      <div class="chapter">The Culinary Creators series</div>
+      <h2>Two chefs, eight dishes, one night.</h2>
+      <p style="margin-top:20px">A run of one-off evenings with the chefs and hospitality figures shaping the industry now — from classical fine-dining veterans to cooks who came up outside it. Tom and the guest cook eight dishes between them, live, in a room relaxed enough to watch it happen.</p>
+      <p class="small mute" style="margin-top:16px">Menus are written for each night and released closer to the date. To hear about new dates first, join the newsletter at the foot of the page.</p>
+    </div>
+    <div>
+      <div class="chapter">The series so far</div>
+      <div class="index" style="columns:1">
+        <div><b>Daniel Clifford</b><i>19 May</i></div>
+        <div><b>Ruth Hansom</b><i>2 June</i></div>
+        <div><b>Alberto Landgraf</b><i>17 June</i></div>
+        <div><b>Ben Marks</b><i>8 July</i></div>
+        <div><b>Jonny Drain</b><i>9 September</i></div>
+        <div><b>Merlin Labron-Johnson</b><i>23 September</i></div>
+        <div><b>Jackson Boxer</b><i>13 January</i></div>
+      </div>
+      <div class="chapter" style="margin-top:50px">Also cooking in the series</div>
+      <p class="mute" style="font-size:16px">Emily English, Sam Black, Thomas Straker, Matthew Ryle, John Williams, Ruthie Rogers, Jim Ainsworth, Max Coen, Tyler Butt, Adip Adhikari, Andy Hearnden, Joseph Lidgerwood, Agnar Sverrisson.</p>
+    </div>
   </div>
-  <p class="mute" style="margin-top:40px">To hear about new dates first, join the newsletter at the foot of the page.</p>
 </section>
-''')
+
+<section class="tint" id="women-in-wine">
+  <div class="grid g-2">
+    <div><div class="chapter">Women in Wine · 14 October</div><h2>Four winemakers, four estates, one table.</h2><p style="margin-top:20px">An evening of wine with food from the kitchen, the makers in the room to talk through their estates and the thinking behind each pour.</p></div>
+    <div class="index" style="columns:1">
+      <div style="display:block"><b>Beatriz Cabral Almeida</b><p style="font-size:15px;color:var(--ink-2)">Quinta dos Carvalhais, Dão, Portugal — a winemaker who came to the cellar through microbiology.</p></div>
+      <div style="display:block"><b>Sofia Ricasoli</b><p style="font-size:15px;color:var(--ink-2)">Fifth generation of the Ricasoli family, and founder of Innesto, making her own Tuscan wines.</p></div>
+      <div style="display:block"><b>Sophie Cossy</b><p style="font-size:15px;color:var(--ink-2)">Took over her family's Champagne house in the Montagne de Reims at twenty-five; vines there since 1764.</p></div>
+      <div style="display:block"><b>Laura Iverson</b><p style="font-size:15px;color:var(--ink-2)">Partner and Director at Chêne Bleu, a Provence estate restored from a medieval priory.</p></div>
+    </div>
+  </div>
+</section>
+""")
 
 # ---------------- PRIVATE HIRE ----------------
 PAGES["private-hire.html"] = ("Private Hire — Muse by Tom Aikens",
@@ -465,7 +529,7 @@ PAGES["private-hire.html"] = ("Private Hire — Muse by Tom Aikens",
     <div>
       <p class="lede">Groups of up to six can take the full ten-course tasting menu. From seven guests, choose the six-course tasting menu or a seasonal three-course à la carte, which the host curates with us in advance.</p>
       <p style="margin-top:1.2em">Sébastien, our General Manager, is your contact from the first enquiry — menu, pacing, wine and the feel of the room.</p>
-      <div class="cta"><a class="btn solid" href="mailto:info@musebytomaikens.co.uk?subject=Private%20dining%20enquiry">Enquire by email</a><a class="btn" href="#">Download the brochure</a></div>
+      <div class="cta"><a class="btn solid" href="mailto:info@musebytomaikens.co.uk?subject=Private%20dining%20enquiry">Enquire by email</a><a class="btn" href="https://www.dropbox.com/scl/fi/wp0vfcxkwxbc31bhx0jwh/Group-Dining-at-Muse.pdf?rlkey=ujyde62gvma5txxepxyfa2egi&dl=0" target="_blank" rel="noopener">Download the brochure</a></div>
       <p class="small mute" style="margin-top:18px">info@musebytomaikens.co.uk &nbsp;·&nbsp; +44 (0)20 3301 2903</p>
     </div>
   </div>
@@ -580,7 +644,53 @@ PAGES["contact.html"] = ("Contact — Muse by Tom Aikens","Muse by Tom Aikens, 3
 </section>
 ''')
 
+
+PAGES["careers.html"] = ("Careers — Muse by Tom Aikens","Join the team at Muse by Tom Aikens, a Michelin-starred 25-cover restaurant in Belgravia. Send your CV to info@musebytomaikens.co.uk.",
+ page_head("Careers","Twenty-five covers. Every detail.",img="img2.jpg",alt="Tom Aikens plating at the pass",lede="A room this small has nowhere to hide, which is exactly why people choose to work here.") + f"""
+<section>
+  <div class="grid g-2">
+    <div><div class="chapter">Working at Muse</div><h2>Who we look for.</h2></div>
+    <div>
+      <p class="lede">Muse earned its Michelin star in its first year and has held it since. The room, the menu, the service and the team are what make it — and the team is the part that can't be bought.</p>
+      <p style="margin-top:1.2em">We look for people who are dedicated, self-motivated and curious about food — front of house and kitchen — with a care for organisation that matches ours. If that's you, we'd like to hear from you whether or not a role is advertised.</p>
+      <div class="cta"><a class="btn solid" href="mailto:info@musebytomaikens.co.uk?subject=Working%20at%20Muse">Send your CV</a></div>
+      <p class="small mute" style="margin-top:18px">info@musebytomaikens.co.uk</p>
+    </div>
+  </div>
+</section>
+""")
+
+PAGES["privacy.html"] = ("Privacy — Muse by Tom Aikens","How Muse by Tom Aikens collects and uses personal information, and the terms of use for this website.",
+ page_head("Privacy","Privacy and terms.",img="dining-area.jpg",alt="The dining room at Muse",lede="How we handle your information when you book, write to us or use this site.") + """
+<section class="legal">
+  <h2>Privacy</h2>
+  <p><b>Who we are.</b> This website is operated by Muse by Tom Aikens, 38 Groom Place, London SW1X 7BA. You can reach us at info@musebytomaikens.co.uk.</p>
+  <p><b>What we collect.</b> When you book a table through SevenRooms, buy a voucher through Vouchable, email us, or join our newsletter, we receive the details you give — typically your name, contact details, the date and size of your booking, and any dietary or access requirements. This site sets no tracking cookies of its own.</p>
+  <p><b>How we use it.</b> To take and manage your reservation, to contact you about it, to meet dietary and access needs, and — only where you have asked for it — to send news of menus and events. We do not sell or rent personal information.</p>
+  <p><b>Who we share it with.</b> Our reservation, voucher and email providers process data on our behalf under their own privacy terms: SevenRooms (reservations), Vouchable (vouchers) and our email platform (newsletter). We share nothing else except where the law requires.</p>
+  <p><b>How long we keep it.</b> Booking records for as long as we need them for accounting and guest history; newsletter details until you unsubscribe, which you can do from any email.</p>
+  <p><b>Your rights.</b> You can ask to see, correct or delete the personal information we hold about you by emailing info@musebytomaikens.co.uk. You can also complain to the Information Commissioner's Office at ico.org.uk.</p>
+  <h2 style="margin-top:60px">Terms of use</h2>
+  <p>The text, photographs, film and design on this site belong to Muse by Tom Aikens or are used with permission, and may be viewed for personal, non-commercial purposes only. Menus and prices are a guide to the season and may change without notice. Links to other sites are provided for convenience; we are not responsible for their content. These terms are governed by the law of England and Wales.</p>
+  <p class="small mute">Last reviewed November 2026.</p>
+</section>
+""")
+
+PAGES["404.html"] = ("Page not found — Muse by Tom Aikens","That page isn't here.",
+ f"""<section class="page-head" style="min-height:70vh;display:grid;align-content:center">
+  <div class="chapter">404</div>
+  <h1>That page has moved on, like the season.</h1>
+  <p class="lede">Try the menus, what's on, or the front door.</p>
+  <div class="cta"><a class="btn solid" href="index.html">Home</a><a class="btn" href="menus.html">Menus</a><a class="btn" href="contact.html">Contact</a></div>
+</section>
+""")
+
+OGIMG = {"index.html":"img/kitchen-counter.jpg","about.html":"img/tom.jpg","menus.html":"img/img1.jpg","whats-on.html":"img/kitchen-counter.jpg","private-hire.html":"img/private-party-1.jpg","suppliers.html":"img/provenance.jpg","gallery.html":"img/dining-area.jpg","press.html":"img/drinks-cab.jpg","contact.html":"img/muse-building.jpg"}
 for fname,(title,desc,body) in PAGES.items():
     with open(os.path.join(OUT,fname),"w") as f:
-        f.write(head(title,desc)+header(fname)+body+FOOTER)
+        f.write(head(title,desc,fname,OGIMG.get(fname,"img/kitchen-counter.jpg"),schema=fname in ("index.html","contact.html"))+header(fname)+body+FOOTER)
     print("wrote",fname)
+with open(os.path.join(OUT,"sitemap.xml"),"w") as f:
+    f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f'  <url><loc>{BASE}/{"" if n=="index.html" else n}</loc></url>\n' for n in PAGES if n!="404.html")+'</urlset>\n')
+with open(os.path.join(OUT,"robots.txt"),"w") as f:
+    f.write(f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")

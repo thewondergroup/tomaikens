@@ -454,21 +454,13 @@ main{opacity:0;transform:translateY(14px);transition:opacity 1s ease .15s,transf
 body.ready main{opacity:1;transform:none}
 body.leaving main{opacity:0;transform:translateY(-10px);transition:opacity .5s ease,transform .55s ease}
 @media (prefers-reduced-motion:reduce){.veil{display:none}main{opacity:1;transform:none;transition:none}}
-/* ================= BACKGROUND MORPH ================= */
-:root{--morph:0}
-body{background:color-mix(in srgb,#15171B calc(var(--morph)*100%),#FAF8F4)}
-main{--paper:color-mix(in srgb,#15171B calc(var(--morph)*100%),#FAF8F4);--paper-2:color-mix(in srgb,#1D2026 calc(var(--morph)*100%),#F1EDE5);--ink:color-mix(in srgb,#E8E2D6 calc(var(--morph)*100%),#1E1C1A);--ink-2:color-mix(in srgb,rgba(232,226,214,.72) calc(var(--morph)*100%),#5C5750);--mist:color-mix(in srgb,rgba(232,226,214,.5) calc(var(--morph)*100%),#8C867D);--line:color-mix(in srgb,rgba(232,226,214,.16) calc(var(--morph)*100%),rgba(30,28,26,.14));--stone:color-mix(in srgb,#23262C calc(var(--morph)*100%),#E6E0D6)}
-main>section{background:transparent;color:var(--ink)}
+/* section backgrounds (static) */
+main>section{background:var(--paper)}
 main>section.tint{background:var(--paper-2)}
-main>section.dark,main>section.split{background:transparent;color:#E8E2D6}
+main>section.dark{background:#15171B}
+main>section.split{background:#15171B}
 main>section.page-hero{background:#15171B}
 .hero{background:#15171B}
-main>section:not(.dark):not(.split):not(.page-hero) .lede,main>section:not(.dark):not(.split):not(.page-hero) p{color:var(--ink)}
-main>section:not(.dark):not(.split):not(.page-hero) .mute,main>section:not(.dark):not(.split):not(.page-hero) p.mute{color:var(--ink-2)}
-main>section:not(.dark):not(.split):not(.page-hero) .btn{border-color:var(--ink);color:var(--ink)}
-main>section:not(.dark):not(.split):not(.page-hero) .btn.solid{background:var(--ink);color:var(--paper)}
-.overlap .text{background:var(--paper)}
-.menu-cards .face,.mcard .back{background:#1D2026}
 .memory{text-decoration:none;border-bottom:1px solid transparent;transition:border-color .4s}
 .memory.on:hover{border-color:var(--copper)}
 .chapter-list .chp{scroll-margin-top:12vh}

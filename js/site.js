@@ -50,19 +50,6 @@
   });
   addEventListener('pageshow',e=>{ if(e.persisted) document.body.classList.remove('leaving'); });
 
-  // ---------- background morph between light and dark sections ----------
-  const secs=[...document.querySelectorAll('main > section, main > div.hero-pin')].filter(el=>!el.classList.contains('strip-wrap'));
-  function tone(el){ if(el.classList.contains('hero-pin')||el.classList.contains('dark')||el.classList.contains('page-hero')||el.classList.contains('split')) return 1; return 0; }
-  function morph(){
-    const mid=innerHeight*0.55; let cur=null,next=null;
-    for(const el of secs){ const r=el.getBoundingClientRect(); if(r.top<=mid&&r.bottom>mid){cur=el;} if(r.top>mid){ next=el; break; } }
-    if(!cur) return;
-    let t=tone(cur);
-    if(next){ const r=next.getBoundingClientRect(); const d=r.top-mid; const band=Math.min(360,innerHeight*0.4); if(d<band){ const k=1-d/band; t=t*(1-k)+tone(next)*k; } }
-    document.documentElement.style.setProperty('--morph',t.toFixed(3));
-  }
-  addEventListener('scroll',()=>requestAnimationFrame(morph),{passive:true}); addEventListener('resize',morph); morph();
-
   // ---------- cinematic layer ----------
   const ph1=document.querySelector('.page-hero h1');
   if(ph1){ ph1.innerHTML=ph1.textContent.split(' ').map((w,i)=>`<span class="w" style="transition-delay:${200+i*90}ms">${w}</span>`).join(' '); requestAnimationFrame(()=>requestAnimationFrame(()=>{ph1.classList.add('in'); ph1.closest('.page-hero').classList.add('in');})); }

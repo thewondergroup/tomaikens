@@ -41,23 +41,17 @@
   // ---------- homepage hero ----------
   const hero=document.querySelector('.hero');
   if(!hero) return;
-  const mems=[...document.querySelectorAll('.memory')], title=document.getElementById('title'), skip=document.getElementById('skip'), bg=document.getElementById('herobg'), lady=document.getElementById('lady'), vid=document.getElementById('herovid'), hm=document.querySelector('.memories');
-  let timers=[], done=false;
-  mems.forEach(m=>{ m.innerHTML=m.textContent.split(' ').map((w,i)=>`<span class="w" style="--i:${i};transition-delay:${i*90}ms">${w}</span>`).join(' '); });
-  function finish(){
-    if(done) return; done=true; timers.forEach(clearTimeout);
-    mems.forEach(m=>{m.classList.remove('on');m.classList.add('off')});
-    bg.classList.remove('pre'); bg.classList.add('on'); title.classList.add('on'); if(skip) skip.remove();
-    if(vid && !reduce){ vid.playbackRate=0.9; vid.play().catch(()=>{}); }
-  }
-  if(reduce){ finish(); }
+  const mems=[...document.querySelectorAll('.memory')], title=document.getElementById('title'), bg=document.getElementById('herobg'), vid=document.getElementById('herovid');
+  mems.forEach(m=>{ m.innerHTML=m.innerHTML.trim().split(/\s+/).map((w,i)=>`<span class="w" style="--i:${i};transition-delay:${i*80}ms">${w}</span>`).join(' '); });
+  bg.classList.add('on');
+  if(vid && !reduce){ vid.playbackRate=0.9; vid.play().catch(()=>{}); }
+  requestAnimationFrame(()=>title.classList.add('on'));
+  if(reduce){ mems[0].classList.add('on'); }
   else{
-    bg.classList.add('pre'); if(vid) vid.play().catch(()=>{});
-    let t=500;
-    mems.forEach(m=>{ timers.push(setTimeout(()=>m.classList.add('on'),t)); t+=3200; timers.push(setTimeout(()=>{m.classList.remove('on');m.classList.add('off')},t-1200)); });
-    timers.push(setTimeout(finish,t-400));
+    let i=0;
+    const HOLD=3600, GAP=1100;
+    function show(){ const m=mems[i]; m.classList.remove('off'); m.classList.add('on');
+      setTimeout(()=>{ m.classList.remove('on'); m.classList.add('off'); setTimeout(()=>{ m.classList.remove('off'); i=(i+1)%mems.length; show(); }, GAP); }, HOLD); }
+    setTimeout(show, 2600);
   }
-  skip.addEventListener('click',finish);
-  addEventListener('scroll',()=>{ if(scrollY>40) finish(); },{passive:true,once:true});
-
 })();

@@ -19,7 +19,7 @@ def head(title, desc):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=9">
+<link rel="stylesheet" href="css/site.css?v=10">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
@@ -90,7 +90,7 @@ FOOTER = f'''</main>
     <nav><a href="https://musebytomaikens.co.uk/privacy-policy" target="_blank" rel="noopener">Privacy</a></nav>
   </div>
 </footer>
-<script src="js/site.js?v=8"></script>
+<script src="js/site.js?v=10"></script>
 </body>
 </html>
 '''
@@ -146,16 +146,18 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
   <div class="grain"></div>
   <img class="lady" id="lady" src="img/muse-lady.png" alt="" aria-hidden="true">
   <div class="bg" id="herobg"><video id="herovid" muted loop playsinline preload="auto" poster="img/hero-poster.jpg" aria-hidden="true"><source src="img/hero.mp4" type="video/mp4"></video></div>
-  <button class="skip" id="skip">Skip</button>
-  <div class="memories" aria-hidden="true">
-    <p class="memory">Baking with my mother, Tania. Norfolk, aged eight.</p>
-    <p class="memory">A bottle my father opened, and a France I hadn't seen yet.</p>
-    <p class="memory">Every dish here began as a memory.</p>
-  </div>
   <div class="hero-title" id="title">
     <h1 class="raw"><img src="img/logo.png" alt="Muse" class="script"></h1>
     <div class="by">BY TOM AIKENS &nbsp;·&nbsp; BELGRAVIA</div>
-    <p class="defn"><i>muse</i> <span class="pos">n.</span> A person or personified force who is the source of creative inspiration for a creative artist.</p>
+    <div class="memories" aria-live="polite">
+      <p class="memory">Baking with my mother, Tania. Norfolk, aged eight.</p>
+      <p class="memory">Picking fruit with Robert for the jam pan.</p>
+      <p class="memory">A bottle my father opened, and a France I hadn't seen yet.</p>
+      <p class="memory">Two stars at twenty-six. The quietest I have ever been.</p>
+      <p class="memory">Twenty-five seats in a Belgravia mews house.</p>
+      <p class="memory">Every dish here began as a memory.</p>
+      <p class="memory"><i>muse</i> — a person or personified force who is the source of creative inspiration for an artist.</p>
+    </div>
   </div>
 </section></div>
 

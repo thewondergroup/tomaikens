@@ -32,7 +32,7 @@ def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schem
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=17">
+<link rel="stylesheet" href="css/site.css?v=19">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
@@ -103,7 +103,7 @@ FOOTER = f'''</main>
     <nav><a href="privacy.html">Privacy</a><a href="careers.html">Careers</a></nav>
   </div>
 </footer>
-<script src="js/site.js?v=17"></script>
+<script src="js/site.js?v=18"></script>
 </body>
 </html>
 '''
@@ -162,7 +162,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
   <div class="hero-title" id="title">
     <h1 class="raw"><img src="img/logo.png" alt="Muse" class="script"></h1>
     <div class="by"><span class="by-pre">by</span> <span class="by-name">Tom Aikens</span><span class="by-place">Belgravia, London</span></div>
-    <p class="thesis"><span class="fixed">Every dish here began as</span> <span class="memories" aria-live="polite"><span class="memory">a memory.</span><span class="memory">a morning baking with my mother.</span><span class="memory">fruit picked with my brother Robert.</span><span class="memory">a bottle my father opened.</span><span class="memory">shellfish landing in a Paris kitchen.</span><span class="memory">two stars at twenty-six.</span><span class="memory">wild grouse from the Pennine moors.</span></span></p>
+    <p class="thesis"><span class="fixed">Every dish here began as</span> <span class="memories" aria-live="polite"><a class="memory" href="menus.html#tasting">a memory.</a><a class="memory" href="menus.html#c1">a morning baking with my mother.</a><a class="memory" href="menus.html#c1">fruit picked with my brother Robert.</a><a class="memory" href="menus.html#c7">a bottle my father opened.</a><a class="memory" href="menus.html#c6">shellfish landing in a Paris kitchen.</a><a class="memory" href="menus.html#c3">two stars at twenty-six.</a><a class="memory" href="menus.html#c8">wild grouse from the Pennine moors.</a></span></p>
   </div>
 </section></div>
 
@@ -379,7 +379,7 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
   </div>
   <div class="chapters">
     <div class="stage"><div class="ph"><div class="cnum">01</div><div class="frame">{"".join(f'<img src="img/{im}" alt="" loading="lazy">' for im in ["img3.jpg","gallery-1.jpg","img1.jpg","culinary-creators.jpg","img2.jpg","img4.jpg"])}</div></div></div>
-    <ol class="chapter-list">{"".join(f'<li class="chp"><div class="n">Course {i+1:02d} of 10</div><div class="ct">{t}</div><div class="cd">{d}</div><div class="cm">{m}</div></li>' for i,(t,d,m) in enumerate(COURSES))}</ol>
+    <ol class="chapter-list">{"".join(f'<li class="chp" id="c{i+1}"><div class="n">Course {i+1:02d} of 10</div><div class="ct">{t}</div><div class="cd">{d}</div><div class="cm">{m}</div></li>' for i,(t,d,m) in enumerate(COURSES))}</ol>
   </div>
   <div style="padding:60px 0 clamp(80px,10vw,150px)">{NOTE}</div>
 </section>

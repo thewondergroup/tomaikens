@@ -2,7 +2,7 @@
   --paper:#FAF8F4; --paper-2:#F1EDE5; --stone:#E6E0D6; --ink:#1E1C1A; --ink-2:#5C5750; --mist:#8C867D;
   --copper:#AF8670; --copper-2:#8F6B56; --sage:#E3E7E0; --sage-ink:#4E5A4B; --line:rgba(30,28,26,.14);
   --serif:'Cormorant Garamond',Georgia,serif; --sans:'EB Garamond',Georgia,serif;
-  --gutter:clamp(20px,6vw,96px);
+  --gutter:clamp(24px,6vw,96px);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -230,7 +230,7 @@ main>section.sage{background:var(--sage)}
 .overlap.flip{grid-template-columns:5fr 7fr}
 .overlap.flip .text{margin-left:0;margin-right:-12%;order:0}
 .overlap.flip .big{order:1}
-@media (max-width:860px){.overlap,.overlap.flip{grid-template-columns:1fr}.overlap .text,.overlap.flip .text{margin:0;box-shadow:none;padding:40px 0 0}.overlap.flip .text{order:1}.overlap.flip .big{order:0}}
+@media (max-width:860px){.overlap,.overlap.flip{grid-template-columns:1fr}.overlap .text,.overlap.flip .text{margin:0;box-shadow:none;padding:36px 28px 40px}.overlap.flip .text{order:1}.overlap.flip .big{order:0}}
 .dark{background:#15171B;color:#E8E2D6}
 .dark .chapter{color:var(--copper)}
 .dark .lede,.dark p{color:#E8E2D6}

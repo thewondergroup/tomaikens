@@ -14,6 +14,8 @@
   document.getElementById('open').onclick = openD;
   document.getElementById('close').onclick = closeD;
   drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeD));
+  const drimg=document.getElementById('drimg');
+  if(drimg){ drawer.querySelectorAll('.dr-links a[data-img]').forEach(a=>a.addEventListener('mouseenter',()=>{ if(drimg.getAttribute('src')===a.dataset.img) return; drimg.classList.add('fade'); setTimeout(()=>{drimg.src=a.dataset.img; drimg.onload=()=>drimg.classList.remove('fade');},250); })); }
   addEventListener('keydown', e=>{ if(e.key==='Escape') closeD(); });
 
   // image reveals (clip lives on the img, so the observer sees the box)

@@ -44,19 +44,19 @@ b,strong{font-weight:500}
 .burger:hover span:nth-child(2){transform:scaleX(.6);transform-origin:left}
 @media (max-width:900px){.navlinks{display:none}}
 @media (max-width:560px){.nav .book{display:none}}
-.drawer{position:fixed;inset:0;z-index:60;background:var(--paper);padding:110px var(--gutter) 60px;display:flex;flex-direction:column;gap:10px;overflow:auto;opacity:0;visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path .7s cubic-bezier(.77,0,.18,1),opacity .4s ease,visibility 0s linear .7s}
+.drawer{position:fixed;inset:0;z-index:60;background:var(--paper);padding:84px var(--gutter) 36px;display:flex;flex-direction:column;gap:4px;overflow:auto;opacity:0;visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path .7s cubic-bezier(.77,0,.18,1),opacity .4s ease,visibility 0s linear .7s}
 .drawer.open{opacity:1;visibility:visible;clip-path:inset(0);transition:clip-path .7s cubic-bezier(.77,0,.18,1),opacity .3s ease,visibility 0s}
-.drawer a{font-family:var(--serif);font-size:clamp(34px,8vw,44px);line-height:1.2;opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
+.drawer a{font-family:var(--serif);font-size:clamp(26px,6vw,38px);line-height:1.25;opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}
 .drawer.open a{opacity:1;transform:none}
 .drawer a:nth-child(2){transition-delay:.25s}.drawer a:nth-child(3){transition-delay:.3s}.drawer a:nth-child(4){transition-delay:.35s}.drawer a:nth-child(5){transition-delay:.4s}.drawer a:nth-child(6){transition-delay:.45s}.drawer a:nth-child(7){transition-delay:.5s}.drawer a:nth-child(8){transition-delay:.55s}.drawer a:nth-child(9){transition-delay:.6s}.drawer a:nth-child(10){transition-delay:.65s}.drawer a:nth-child(11){transition-delay:.7s}.drawer a:nth-child(12){transition-delay:.75s}
-.drawer .foot{margin-top:auto;padding-top:30px;font-family:var(--sans);font-size:13px;letter-spacing:.04em;color:var(--mist);opacity:0;transition:opacity .5s ease .8s}
+.drawer .foot{margin-top:auto;padding-top:20px;font-family:var(--sans);font-size:13px;letter-spacing:.04em;color:var(--mist);opacity:0;transition:opacity .5s ease .8s}
 .drawer.open .foot{opacity:1}
 .drawer .close{opacity:0;transition:opacity .4s ease .5s}
 .drawer.open .close{opacity:1}
 body.locked{overflow:hidden}
-.drawer .book{align-self:flex-start;margin-top:26px;font-family:var(--sans);font-size:13px}
+.drawer .book{align-self:flex-start;margin-top:18px;font-family:var(--sans);font-size:13px}
 .drawer .close{position:absolute;top:22px;right:var(--gutter);background:none;border:0;font:inherit;font-size:13px;letter-spacing:.04em;cursor:pointer}
-.drawer .book{align-self:flex-start;margin-top:26px;font-family:var(--sans);font-size:13px}
+.drawer .book{align-self:flex-start;margin-top:18px;font-family:var(--sans);font-size:13px}
 
 /* layout */
 section{padding:clamp(80px,10vw,150px) var(--gutter)}

@@ -31,15 +31,19 @@ b,strong{font-weight:500}
 .logo{height:32px;width:auto}
 .brand{display:flex;align-items:center;gap:14px}
 .star-mark{height:20px;width:auto}
-.navlinks{display:flex;gap:30px;font-size:15px;letter-spacing:.06em;font-weight:500;text-transform:uppercase}
+.navlinks{display:flex;gap:34px;font-size:14px;letter-spacing:.1em;font-weight:500;text-transform:uppercase;white-space:nowrap}
 .navlinks a{position:relative;padding:4px 0;color:var(--ink-2)}
 .navlinks a.on,.navlinks a:hover{color:var(--ink)}
 .navlinks a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--copper);transition:right .35s ease}
 .navlinks a:hover::after,.navlinks a.on::after{right:0}
 .book{border:1px solid var(--ink);padding:11px 22px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:background .3s,color .3s;white-space:nowrap}
 .book:hover{background:var(--ink);color:var(--paper)}
-.burger{display:none;background:none;border:0;color:inherit;font:inherit;font-size:14px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
-@media (max-width:1100px){.navlinks{display:none}.burger{display:block}.nav .book{display:none}}
+.nav-right{display:flex;align-items:center;gap:22px}
+.burger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:30px;height:30px;background:none;border:0;cursor:pointer;padding:0}
+.burger span{display:block;height:1px;background:currentColor;transition:transform .3s,opacity .3s}
+.burger:hover span:nth-child(2){transform:scaleX(.6);transform-origin:left}
+@media (max-width:900px){.navlinks{display:none}}
+@media (max-width:560px){.nav .book{display:none}}
 .drawer{position:fixed;inset:0;z-index:60;background:var(--paper);padding:110px var(--gutter) 60px;display:flex;flex-direction:column;gap:10px;overflow:auto;opacity:0;visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path .7s cubic-bezier(.77,0,.18,1),opacity .4s ease,visibility 0s linear .7s}
 .drawer.open{opacity:1;visibility:visible;clip-path:inset(0);transition:clip-path .7s cubic-bezier(.77,0,.18,1),opacity .3s ease,visibility 0s}
 .drawer a{font-family:var(--serif);font-size:clamp(34px,8vw,44px);line-height:1.2;opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .6s cubic-bezier(.2,.7,.2,1)}

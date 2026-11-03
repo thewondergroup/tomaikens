@@ -26,13 +26,15 @@ def head(title, desc):
 '''
 
 def header(current):
-    links = "".join(f'<a href="{h}"{" class=on" if h==current else ""}>{t}</a>' for h,t in NAV)
+    links = "".join(f'<a href="{h}"{" class=on" if h==current else ""}>{t}</a>' for h,t in NAV if h in ("menus.html","whats-on.html","private-hire.html","contact.html"))
     dlinks = "".join(f'<a href="{h}">{t}</a>' for h,t in NAV)
     return f'''<header class="nav" id="nav">
   <a href="index.html" class="brand"><img src="img/logo.png" alt="Muse by Tom Aikens" class="logo"><img src="img/michelin.png" alt="One Michelin star" class="star-mark" title="One Michelin star"></a>
   <nav class="navlinks" aria-label="Main">{links}</nav>
-  <a class="book" href="{BOOK}" target="_blank" rel="noopener">Book a table</a>
-  <button class="burger" id="open" aria-label="Open menu">Menu</button>
+  <div class="nav-right">
+    <a class="book" href="{BOOK}" target="_blank" rel="noopener">Book a table</a>
+    <button class="burger" id="open" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
 </header>
 <div class="drawer" id="drawer">
   <button class="close" id="close">Close</button>

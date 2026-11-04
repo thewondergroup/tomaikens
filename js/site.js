@@ -86,11 +86,13 @@
   bg.classList.add('on');
   if(vid && !reduce){ vid.playbackRate=0.9; vid.play().catch(()=>{}); }
   requestAnimationFrame(()=>title.classList.add('on'));
+  const slot=document.querySelector('.memories');
   if(reduce){ mems[0].classList.add('on'); }
   else{
     let i=0;
     const HOLD=3200, GAP=700;
-    function show(){ const m=mems[i]; m.classList.remove('off'); m.classList.add('on');
+    function fit(m){ if(slot && innerWidth>700) slot.style.width=m.getBoundingClientRect().width+'px'; }
+    function show(){ const m=mems[i]; fit(m); m.classList.remove('off'); m.classList.add('on');
       setTimeout(()=>{ m.classList.remove('on'); m.classList.add('off'); setTimeout(()=>{ m.classList.remove('off'); i=(i+1)%mems.length; show(); }, GAP); }, i===0?HOLD+1600:HOLD); }
     setTimeout(show, 2800);
   }

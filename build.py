@@ -180,7 +180,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
       <p style="margin-top:20px">Trained under Pierre Koffmann and Joël Robuchon, Tom earned his second star at twenty-six. At Muse he is back at the pass every service, cooking a menu drawn from his own life — and telling you why.</p>
       <div class="cta"><a class="btn" href="about.html">Tom's story</a></div>
     </div>
-    {ph("img2.jpg","Tom Aikens plating at the pass","big plx",'data-plx="14"')}
+    <div class="ph big vid"><video muted loop playsinline autoplay preload="metadata" poster="img/pass-poster.jpg"><source src="img/pass.mp4" type="video/mp4"></video></div>
   </div>
 </section>
 
@@ -255,7 +255,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
 </section>
 
 <section class="split" id="on">
-  <div class="ph"><img src="img/kitchen-counter.jpg" alt="The counter at Muse" loading="lazy"></div>
+  <div class="ph vid"><video muted loop playsinline autoplay preload="metadata" poster="img/service-poster.jpg"><source src="img/service.mp4" type="video/mp4"></video></div>
   <div class="panel">
     <div class="chapter">What's on</div>
     <h2>One night. Two chefs. Eight courses at the counter.</h2>

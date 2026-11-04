@@ -104,7 +104,7 @@ FOOTER = f'''</main>
     <nav><a href="privacy.html">Privacy</a><a href="careers.html">Careers</a></nav>
   </div>
 </footer>
-<script src="js/site.js?v=21"></script>
+<script src="js/site.js?v=25"></script>
 </body>
 </html>
 '''
@@ -159,7 +159,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
  f'''<div class="hero-pin"><section class="hero" aria-label="Introduction">
   <div class="grain"></div>
   <img class="lady" id="lady" src="img/muse-lady.png" alt="" aria-hidden="true">
-  <div class="bg" id="herobg"><video id="herovid" muted loop playsinline preload="auto" poster="img/hero-poster.jpg" aria-hidden="true"><source src="img/hero.mp4" type="video/mp4"></video></div>
+  <div class="bg" id="herobg"><video id="herovid" muted loop playsinline autoplay webkit-playsinline preload="auto" poster="img/hero-poster.jpg" aria-hidden="true"><source src="img/hero.mp4" type="video/mp4"></video></div>
   <div class="hero-title" id="title">
     <h1 class="raw"><img src="img/logo.png" alt="Muse" class="script"></h1>
     <div class="by"><span class="by-pre">by</span> <span class="by-name">Tom Aikens</span><span class="by-place">Belgravia, London</span></div>
@@ -186,7 +186,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
 
 <section id="house" class="tint">
   <div class="overlap">
-    <div class="ph big vid"><video muted loop playsinline autoplay preload="metadata" poster="img/kitchen-poster.jpg"><source src="img/kitchen.mp4" type="video/mp4"></video></div>
+    <div class="ph big vid"><video muted loop playsinline autoplay webkit-playsinline preload="auto" poster="img/kitchen-poster.jpg"><source src="img/kitchen.mp4" type="video/mp4"></video></div>
     <div class="text">
       <div class="chapter">The house</div>
       <h2>A Georgian mews, with room for twenty-five.</h2>
@@ -255,7 +255,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
 </section>
 
 <section class="split" id="on">
-  <div class="ph vid"><video muted loop playsinline autoplay preload="metadata" poster="img/service-poster.jpg"><source src="img/service.mp4" type="video/mp4"></video></div>
+  <div class="ph vid"><video muted loop playsinline autoplay webkit-playsinline preload="auto" poster="img/service-poster.jpg"><source src="img/service.mp4" type="video/mp4"></video></div>
   <div class="panel">
     <div class="chapter">What's on</div>
     <h2>One night. Two chefs. Eight courses at the counter.</h2>
@@ -692,7 +692,7 @@ PAGES["christmas.html"] = ("Christmas at Muse — Muse by Tom Aikens","Christmas
  page_head("Christmas","Christmas, told the Muse way.",img="xmas-table.jpg",alt="The Christmas table at Muse",lede="A festive tasting menu written as stories, a mews house dressed for December, parties for six to twenty-five, and a hamper of Tom's own making.") + f"""
 <section>
   <div class="overlap">
-    <div class="ph big vid"><video muted loop playsinline autoplay preload="metadata" poster="img/xmas-poster.jpg"><source src="img/xmas.mp4" type="video/mp4"></video></div>
+    <div class="ph big vid"><video muted loop playsinline autoplay webkit-playsinline preload="auto" poster="img/xmas-poster.jpg"><source src="img/xmas.mp4" type="video/mp4"></video></div>
     <div class="text">
       <div class="chapter">The Christmas tasting menu</div>
       <h2>Every course a Christmas story.</h2>

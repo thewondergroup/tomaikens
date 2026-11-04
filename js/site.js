@@ -38,6 +38,15 @@
   // newsletter (no backend yet)
   document.querySelectorAll('form.news').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault(); f.querySelector('input').value=''; f.querySelector('button').textContent='Thank you';}));
 
+  // ---------- make every silent loop play, including iOS Low Power Mode ----------
+  const loops=[...document.querySelectorAll('video[muted][autoplay]')];
+  function kick(){ loops.forEach(v=>{ v.muted=true; const p=v.play(); if(p&&p.catch) p.catch(()=>{}); }); }
+  kick();
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{ const v=e.target; if(e.isIntersecting){ v.muted=true; v.play().catch(()=>{}); } }),{threshold:.1});
+  loops.forEach(v=>vio.observe(v));
+  ['touchstart','pointerdown','scroll'].forEach(ev=>addEventListener(ev,function once(){ kick(); removeEventListener(ev,once); },{passive:true}));
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) kick(); });
+
   // ---------- page transitions ----------
   const veil=document.createElement('div'); veil.className='veil'; document.body.appendChild(veil);
   requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('ready')));

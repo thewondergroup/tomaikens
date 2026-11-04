@@ -32,7 +32,7 @@ def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schem
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=23">
+<link rel="stylesheet" href="css/site.css?v=24">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>
@@ -205,21 +205,21 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
   <div class="menu-cards">
     <a class="mcard" href="menus.html#tasting"><div class="flip">
       <div class="face">
-        <div class="ph"><img src="img/img1.jpg" alt="A course from the tasting menu" loading="lazy"></div>
+        <div class="ph"><img src="img/onion.jpg" alt="Onion, truffle, egg yolk" loading="lazy"></div>
         <div class="mc-body"><div class="mc-k">Ten courses</div><h3>The Tasting Menu</h3><p>The full story, from the garden in Norfolk to the moors of Yorkshire. Lunch and dinner, Tuesday to Saturday.</p><div class="mc-foot"><span class="mc-price">£195</span><span class="mc-link">View menu</span></div></div>
       </div>
       <div class="face back"><div><div class="mc-k">From the ten courses</div><ol><li><i>From a Humble Beginning</i>Onion, Truffle, Egg Yolk</li><li><i>French Jealousy!</i>Scallop, Artichoke, Apple</li><li><i>Made in Great Britain</i>Grouse, Turnip, Elderberries</li><li><i>Life Has Never Been So Sweet</i>Plum, Cardamom, Grains</li></ol></div><span class="mc-link">All ten courses</span></div>
     </div></a>
     <a class="mcard" href="menus.html#lunch"><div class="flip">
       <div class="face">
-        <div class="ph"><img src="img/img3.jpg" alt="A course at lunch" loading="lazy"></div>
+        <div class="ph"><img src="img/turbot.jpg" alt="Turbot in a gold-rimmed bowl" loading="lazy"></div>
         <div class="mc-body"><div class="mc-k">Six courses</div><h3>Lunch Tasting</h3><p>The shorter telling, for a long lunch. Thursday to Saturday.</p><div class="mc-foot"><span class="mc-price">£105</span><span class="mc-link">View menu</span></div></div>
       </div>
       <div class="face back"><div><div class="mc-k">From the six courses</div><ol><li><i>Forever Picking</i>Snacks of the season</li><li><i>Making &amp; Breaking</i>Sourdough, cultured butter</li><li><i>The Love Affair Continues</i>Turbot, Duck Confit, Mash</li><li><i>Life Has Never Been So Sweet</i>Plum, Cardamom, Grains</li></ol></div><span class="mc-link">The six courses</span></div>
     </div></a>
     <a class="mcard" href="menus.html#alacarte"><div class="flip">
       <div class="face">
-        <div class="ph"><img src="img/img4.jpg" alt="Sauce poured at the table" loading="lazy"></div>
+        <div class="ph"><img src="img/venison.jpg" alt="Venison, beetroot, blackberry" loading="lazy"></div>
         <div class="mc-body"><div class="mc-k">Two or three courses</div><h3>À la Carte</h3><p>Choose your own way through the season. Lunch and dinner, Tuesday to Friday.</p><div class="mc-foot"><span class="mc-price">£160 / £195</span><span class="mc-link">View menu</span></div></div>
       </div>
       <div class="face back"><div><div class="mc-k">Choose from</div><ol><li><i>To begin</i>Onion, Truffle, Egg Yolk <em style="color:var(--copper)">or</em> Crab, Celeriac, Pear</li><li><i>Then</i>Turbot, Duck Confit, Mash <em style="color:var(--copper)">or</em> Grouse, Turnip, Elderberries</li><li><i>To finish</i>Figs &amp; Leaves <em style="color:var(--copper)">or</em> Plum, Cardamom, Grains</li></ol></div><span class="mc-link">The à la carte</span></div>
@@ -229,7 +229,7 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
 </section>
 
 <section class="bleed-row">
-  {ph("img4.jpg","Sauce poured at the table","plx",'data-plx="12"')}{ph("img1.jpg","A course from the tasting menu","plx",'data-plx="18"')}{ph("img3.jpg","A course","plx",'data-plx="12"')}
+  {ph("tartare.jpg","Venison tartare, hazelnut tuile","plx",'data-plx="12"')}{ph("spread.jpg","The autumn table","plx",'data-plx="18"')}{ph("scallop.jpg","Scallop, celeriac, hen of the woods","plx",'data-plx="12"')}
 </section>
 
 <section id="tom">
@@ -370,7 +370,7 @@ def six_html():
 NOTE='<p class="small mute" style="margin-top:16px">Cooked fresh to order in a kitchen where nuts and shellfish are present — please tell us about any allergies when you book. A discretionary 15% service charge is added to the bill.</p>'
 PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
  "Autumn menus at Muse: the ten-course tasting menu £195, six-course lunch tasting £105, à la carte two or three courses. Wine pairings by our sommelier.",
- page_head("Menus","Each course is a memory, cooked.",img="img1.jpg",alt="A dish from the tasting menu",lede="Tom's menus trace the moments and people that made him a chef — a childhood kitchen in Norfolk, the great Paris and London kitchens, the produce of a small island. Every course carries the title of the memory it comes from.") + f"""
+ page_head("Menus","Each course is a memory, cooked.",img="spread.jpg",alt="A dish from the tasting menu",lede="Tom's menus trace the moments and people that made him a chef — a childhood kitchen in Norfolk, the great Paris and London kitchens, the produce of a small island. Every course carries the title of the memory it comes from.") + f"""
 <nav class="subnav" aria-label="Menus"><a href="#tasting">Ten-course tasting</a><a href="#lunch">Six-course lunch</a><a href="#alacarte">À la carte</a><a href="#wine">Wine</a><a href="#creators">Culinary Creators</a></nav>
 
 <section class="dark" id="tasting" style="padding-bottom:0">
@@ -379,7 +379,7 @@ PAGES["menus.html"] = ("Menus — Muse by Tom Aikens",
     <div><p class="lede">Scroll slowly. Each course carries the title of the memory it comes from; the dishes move as the season does. Lunch and dinner, Tuesday to Saturday.</p><div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book a table</a><a class="btn" href="{PDF10}" target="_blank" rel="noopener">Download (PDF)</a></div></div>
   </div>
   <div class="chapters">
-    <div class="stage"><div class="ph"><div class="cnum">01</div><div class="frame">{"".join(f'<img src="img/{im}" alt="" loading="lazy">' for im in ["img3.jpg","gallery-1.jpg","img1.jpg","culinary-creators.jpg","img2.jpg","img4.jpg"])}</div></div></div>
+    <div class="stage"><div class="ph"><div class="cnum">01</div><div class="frame">{"".join(f'<img src="img/{im}" alt="" loading="lazy">' for im in ["spread.jpg","gallery-1.jpg","onion.jpg","culinary-creators.jpg","tartare.jpg","scallop.jpg","turbot.jpg","venison.jpg","trifle.jpg","img1.jpg"])}</div></div></div>
     <ol class="chapter-list">{"".join(f'<li class="chp" id="c{i+1}"><div class="n">Course {i+1:02d} of 10</div><div class="ct">{t}</div><div class="cd">{d}</div><div class="cm">{m}</div></li>' for i,(t,d,m) in enumerate(COURSES))}</ol>
   </div>
   <div style="padding:60px 0 clamp(80px,10vw,150px)">{NOTE}</div>
@@ -567,6 +567,12 @@ PAGES["suppliers.html"] = ("Suppliers — Muse by Tom Aikens",
 <section>
   <div class="strip">{ph("provenance.jpg","Wild trout, held by hand")}{ph("our-suppliers.jpg","A hen at one of our farms")}{ph("gallery-3.jpg","Hand-thrown bowls")}</div>
 </section>
+<section class="dark">
+  <div class="grid g-2" style="align-items:center">
+    <div class="ph tall vid"><video controls playsinline preload="metadata" poster="img/producers-poster.jpg"><source src="img/producers.mp4" type="video/mp4"></video></div>
+    <div><div class="chapter">A film</div><h2>Tom, with the people who feed the kitchen.</h2><p style="margin-top:20px">To HG Walter in Barons Court, and the farms, boats and mills behind the menu — a short film with Tom on why provenance is the whole story.</p></div>
+  </div>
+</section>
 <section class="sage" style="padding-top:clamp(60px,7vw,100px)">
   <div class="index">{sup_html}</div>
 </section>
@@ -574,7 +580,7 @@ PAGES["suppliers.html"] = ("Suppliers — Muse by Tom Aikens",
 
 # ---------------- GALLERY ----------------
 GAL = [("kitchen-counter.jpg","The counter"),("img1.jpg","Plating at the pass"),("muse-building.jpg","Groom Place"),("img2.jpg","Sauce at the table"),("gallery-1.jpg","Bowls"),("dining-area.jpg","The dining room"),("drinks-cab.jpg","The drinks cabinet"),("img3.jpg","A course"),("private-party-1.jpg","Set for a private dinner"),("gallery-3.jpg","Stacked bowls"),("img4.jpg","Tom plating"),("culinary-creators.jpg","Sourdough and preserves"),("tom.jpg","Tom Aikens")]
-GALCAP=[("kitchen-counter.jpg","The counter","wide"),("img1.jpg","Cod, courgette, nasturtium","wide"),("muse-building.jpg","Groom Place","tall"),("img2.jpg","Tom at the pass","wide"),("tom.jpg","Tom Aikens","tall"),("dining-area.jpg","The dining room","wide"),("drinks-cab.jpg","The drinks cabinet","tall"),("img3.jpg","A course","tall"),("private-party-1.jpg","Set for a private dinner","wide"),("gallery-3.jpg","The counter stools","tall"),("img4.jpg","Sauce at the table","wide"),("gallery-1.jpg","Hand-thrown bowls","tall"),("culinary-creators.jpg","Sourdough and preserves","wide")]
+GALCAP=[("xmas-table.jpg","The Christmas table","wide"),("onion.jpg","Onion, truffle, egg yolk","tall"),("kitchen-counter.jpg","The counter","wide"),("venison.jpg","Venison, beetroot, blackberry","tall"),("spread.jpg","The autumn table","wide"),("turbot.jpg","Turbot","tall"),("tartare.jpg","Venison tartare","tall"),("scallop.jpg","Scallop, hen of the woods","tall"),("trifle.jpg","Blackberry trifle","tall"),("img1.jpg","Cod, courgette, nasturtium","wide"),("muse-building.jpg","Groom Place","tall"),("img2.jpg","Tom at the pass","wide"),("tom.jpg","Tom Aikens","tall"),("dining-area.jpg","The dining room","wide"),("drinks-cab.jpg","The drinks cabinet","tall"),("img3.jpg","A course","tall"),("private-party-1.jpg","Set for a private dinner","wide"),("gallery-3.jpg","The counter stools","tall"),("img4.jpg","Sauce at the table","wide"),("gallery-1.jpg","Hand-thrown bowls","tall"),("culinary-creators.jpg","Sourdough and preserves","wide")]
 PAGES["gallery.html"] = ("Gallery — Muse by Tom Aikens","Photographs of Muse by Tom Aikens: the mews house, the counter, the dining room and the food.",
  page_head("Gallery","The house, the counter, the plates.",img="img2.jpg",alt="Sauce at the table",lede="Drag, or scroll sideways.") + '<section class="strip-wrap"><div class="film-hint"><span>Drag to move</span><span>' + str(len(GALCAP)) + ' photographs</span></div><div class="filmstrip">' + "".join(f'<div class="ph {c}"><img src="img/{f}" alt="{a}" draggable="false"><span class="hshade"></span><span class="hc">{a}</span></div>' for f,a,c in GALCAP) + '</div></section>')
 
@@ -683,10 +689,10 @@ PAGES["404.html"] = ("Page not found — Muse by Tom Aikens","That page isn't he
 """)
 
 PAGES["christmas.html"] = ("Christmas at Muse — Muse by Tom Aikens","Christmas at Muse by Tom Aikens: a festive tasting menu told in stories, Christmas parties for 6 to 25 in a Belgravia mews house, the Muse Christmas Hamper, and gift vouchers.",
- page_head("Christmas","Christmas, told the Muse way.",img="dining-area.jpg",alt="The dining room at Muse, Christmas",lede="A festive tasting menu written as stories, a mews house dressed for December, parties for six to twenty-five, and a hamper of Tom's own making.") + f"""
+ page_head("Christmas","Christmas, told the Muse way.",img="xmas-table.jpg",alt="The Christmas table at Muse",lede="A festive tasting menu written as stories, a mews house dressed for December, parties for six to twenty-five, and a hamper of Tom's own making.") + f"""
 <section>
   <div class="overlap">
-    {ph("img1.jpg","A course from the Christmas menu","big")}
+    <div class="ph big vid"><video muted loop playsinline autoplay preload="metadata" poster="img/xmas-poster.jpg"><source src="img/xmas.mp4" type="video/mp4"></video></div>
     <div class="text">
       <div class="chapter">The Christmas tasting menu</div>
       <h2>Every course a Christmas story.</h2>
@@ -726,7 +732,7 @@ PAGES["christmas.html"] = ("Christmas at Muse — Muse by Tom Aikens","Christmas
       </div>
       <div class="cta"><a class="btn solid" href="https://tomaikens.co.uk/?p=20029" target="_blank" rel="noopener">Order the hamper</a></div>
     </div>
-    {ph("culinary-creators.jpg","Sourdough, preserves and mince pies","tall")}
+    {ph("trifle.jpg","Blackberry trifle in a coupe","tall")}
   </div>
 </section>
 
@@ -738,7 +744,7 @@ PAGES["christmas.html"] = ("Christmas at Muse — Muse by Tom Aikens","Christmas
 </section>
 """)
 
-OGIMG = {"index.html":"img/kitchen-counter.jpg","about.html":"img/tom.jpg","menus.html":"img/img1.jpg","whats-on.html":"img/kitchen-counter.jpg","private-hire.html":"img/private-party-1.jpg","suppliers.html":"img/provenance.jpg","gallery.html":"img/dining-area.jpg","press.html":"img/drinks-cab.jpg","contact.html":"img/muse-building.jpg","christmas.html":"img/dining-area.jpg"}
+OGIMG = {"index.html":"img/kitchen-counter.jpg","about.html":"img/tom.jpg","menus.html":"img/spread.jpg","whats-on.html":"img/kitchen-counter.jpg","private-hire.html":"img/private-party-1.jpg","suppliers.html":"img/provenance.jpg","gallery.html":"img/dining-area.jpg","press.html":"img/drinks-cab.jpg","contact.html":"img/muse-building.jpg","christmas.html":"img/xmas-table.jpg"}
 for fname,(title,desc,body) in PAGES.items():
     with open(os.path.join(OUT,fname),"w") as f:
         f.write(head(title,desc,fname,OGIMG.get(fname,"img/kitchen-counter.jpg"),schema=fname in ("index.html","contact.html"))+header(fname)+body+FOOTER)

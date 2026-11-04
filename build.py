@@ -180,13 +180,13 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
       <p style="margin-top:20px">Trained under Pierre Koffmann and Joël Robuchon, Tom earned his second star at twenty-six. At Muse he is back at the pass every service, cooking a menu drawn from his own life — and telling you why.</p>
       <div class="cta"><a class="btn" href="about.html">Tom's story</a></div>
     </div>
-    <div class="ph big vid"><video muted loop playsinline autoplay preload="metadata" poster="img/pass-poster.jpg"><source src="img/pass.mp4" type="video/mp4"></video></div>
+    {ph("img2.jpg","Tom Aikens plating at the pass","big plx",'data-plx="14"')}
   </div>
 </section>
 
 <section id="house" class="tint">
   <div class="overlap">
-    {ph("muse-building.jpg","The Muse mews house on Groom Place","big plx",'data-plx="14"')}
+    <div class="ph big vid"><video muted loop playsinline autoplay preload="metadata" poster="img/kitchen-poster.jpg"><source src="img/kitchen.mp4" type="video/mp4"></video></div>
     <div class="text">
       <div class="chapter">The house</div>
       <h2>A Georgian mews, with room for twenty-five.</h2>
@@ -316,7 +316,7 @@ PAGES["about.html"] = ("About — Muse by Tom Aikens",
 
 <section class="tint">
   <div class="grid g-2">
-    <div class="ph tall vid"><video muted loop playsinline autoplay preload="metadata" poster="img/kitchen-poster.jpg"><source src="img/kitchen.mp4" type="video/mp4"></video></div>
+    {ph("muse-building.jpg","The Muse mews house on Groom Place","tall plx",'data-plx="16"')}
     <div>
       <div class="chapter">The house</div>
       <h2>A Georgian mews on Groom Place.</h2>

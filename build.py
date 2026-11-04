@@ -316,7 +316,7 @@ PAGES["about.html"] = ("About — Muse by Tom Aikens",
 
 <section class="tint">
   <div class="grid g-2">
-    {ph("drinks-cab.jpg","The drinks cabinet at Muse","tall plx",'data-plx="16"')}
+    <div class="ph tall vid"><video muted loop playsinline autoplay preload="metadata" poster="img/kitchen-poster.jpg"><source src="img/kitchen.mp4" type="video/mp4"></video></div>
     <div>
       <div class="chapter">The house</div>
       <h2>A Georgian mews on Groom Place.</h2>

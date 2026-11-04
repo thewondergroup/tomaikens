@@ -32,7 +32,7 @@ def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schem
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=22">
+<link rel="stylesheet" href="css/site.css?v=23">
 </head>
 <body>
 <a class="sr" href="#main">Skip to content</a>

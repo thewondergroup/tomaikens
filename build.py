@@ -4,7 +4,7 @@ import os
 OUT = os.path.dirname(os.path.abspath(__file__))
 BOOK = "https://www.sevenrooms.com/reservations/musebytomaikens"
 VOUCH = "https://musebytomaikens.vouchable.co.uk"
-NAV = [("about.html","About"),("menus.html","Menus"),("whats-on.html","What's On"),("private-hire.html","Private Hire"),("suppliers.html","Suppliers"),("gallery.html","Gallery"),("press.html","Press"),("contact.html","Contact")]
+NAV = [("about.html","About"),("christmas.html","Christmas"),("menus.html","Menus"),("whats-on.html","What's On"),("private-hire.html","Private Hire"),("suppliers.html","Suppliers"),("gallery.html","Gallery"),("press.html","Press"),("contact.html","Contact")]
 
 BASE = "https://musebytomaikens.co.uk"
 PDF10 = "https://musebytomaikens.co.uk/wp-content/uploads/2026/10/A5-10-Courses-Tasting-14.10.26.pdf"
@@ -39,7 +39,7 @@ def head(title, desc, fname="index.html", image="img/kitchen-counter.jpg", schem
 '''
 
 def header(current):
-    links = "".join(f'<a href="{h}"{" class=on" if h==current else ""}>{t}</a>' for h,t in NAV if h in ("about.html","menus.html","whats-on.html","private-hire.html","contact.html"))
+    links = "".join(f'<a href="{h}"{" class=on" if h==current else ""}>{t}</a>' for h,t in NAV if h in ("about.html","menus.html","whats-on.html","christmas.html","contact.html"))
     dlinks = "".join(f'<a href="{h}">{t}</a>' for h,t in NAV)
     return f'''<header class="nav" id="nav">
   <a href="index.html" class="brand"><img src="img/logo.png" alt="Muse by Tom Aikens" class="logo"><img src="img/michelin.png" alt="One Michelin star" class="star-mark" title="One Michelin star"></a>
@@ -54,6 +54,7 @@ def header(current):
   <div class="dr-links">
     <a href="index.html" data-img="img/kitchen-counter.jpg">Home</a>
     <a href="about.html" data-img="img/tom.jpg">About</a>
+    <a href="christmas.html" data-img="img/dining-area.jpg">Christmas</a>
     <a href="menus.html" data-img="img/img1.jpg">Menus</a>
     <a href="whats-on.html" data-img="img/culinary-creators.jpg">What's On</a>
     <a href="private-hire.html" data-img="img/private-party-1.jpg">Private Hire</a>
@@ -90,7 +91,7 @@ FOOTER = f'''</main>
     </div>
     <div>
       <h4>Muse</h4>
-      <nav><a href="about.html">About</a><a href="suppliers.html">Suppliers</a><a href="whats-on.html">What's on</a><a href="press.html">Press</a><a href="careers.html">Careers</a></nav>
+      <nav><a href="about.html">About</a><a href="christmas.html">Christmas</a><a href="suppliers.html">Suppliers</a><a href="whats-on.html">What's on</a><a href="press.html">Press</a><a href="careers.html">Careers</a></nav>
     </div>
     <div>
       <h4>News and new dates</h4>
@@ -272,10 +273,10 @@ PAGES["index.html"] = ("Muse by Tom Aikens — Michelin-starred restaurant, Belg
   <div class="awards"><div>Michelin star<small>Since 2021</small></div><div>Five AA Rosettes<small>AA Hospitality Awards</small></div><div>Harden's Top 100<small>UK Restaurants</small></div><div>Restaurant &amp; Bar Design Awards<small>Winner, 2021</small></div></div>
 </section>
 
-<section class="tint" id="vouchers" style="padding-top:clamp(60px,7vw,100px);padding-bottom:clamp(60px,7vw,100px)">
+<section class="tint" id="christmas" style="padding-top:clamp(60px,7vw,100px);padding-bottom:clamp(60px,7vw,100px)">
   <div class="grid g-2" style="align-items:center">
-    <div><div class="chapter">Gift vouchers</div><h2>Give someone a night at the counter.</h2></div>
-    <div><p class="lede">A tasting menu, a lunch, or a sum towards either — sent by email, valid for a year.</p><div class="cta"><a class="btn solid" href="{VOUCH}" target="_blank" rel="noopener">Buy a voucher</a></div></div>
+    <div><div class="chapter">December</div><h2>Christmas, told the Muse way.</h2></div>
+    <div><p class="lede">A festive tasting menu written as stories, parties for six to twenty-five, the Muse Christmas Hamper, and vouchers for the people who are hard to buy for.</p><div class="cta"><a class="btn solid" href="christmas.html">Christmas at Muse</a><a class="btn" href="{VOUCH}" target="_blank" rel="noopener">Gift vouchers</a></div></div>
   </div>
 </section>
 
@@ -681,7 +682,63 @@ PAGES["404.html"] = ("Page not found — Muse by Tom Aikens","That page isn't he
 </section>
 """)
 
-OGIMG = {"index.html":"img/kitchen-counter.jpg","about.html":"img/tom.jpg","menus.html":"img/img1.jpg","whats-on.html":"img/kitchen-counter.jpg","private-hire.html":"img/private-party-1.jpg","suppliers.html":"img/provenance.jpg","gallery.html":"img/dining-area.jpg","press.html":"img/drinks-cab.jpg","contact.html":"img/muse-building.jpg"}
+PAGES["christmas.html"] = ("Christmas at Muse — Muse by Tom Aikens","Christmas at Muse by Tom Aikens: a festive tasting menu told in stories, Christmas parties for 6 to 25 in a Belgravia mews house, the Muse Christmas Hamper, and gift vouchers.",
+ page_head("Christmas","Christmas, told the Muse way.",img="dining-area.jpg",alt="The dining room at Muse, Christmas",lede="A festive tasting menu written as stories, a mews house dressed for December, parties for six to twenty-five, and a hamper of Tom's own making.") + f"""
+<section>
+  <div class="overlap">
+    {ph("img1.jpg","A course from the Christmas menu","big")}
+    <div class="text">
+      <div class="chapter">The Christmas tasting menu</div>
+      <h2>Every course a Christmas story.</h2>
+      <p style="margin-top:20px">Through December the tasting menu turns to the season, each course carrying a story of Christmas the way the autumn menu carries Tom's memories. It opens with <i>Just Around the Corner</i> — the first taste of Christmas: sprouts, bread sauce and bacon — and the room is dressed to match: enough to feel special, still elegant.</p>
+      <p style="margin-top:1em">Lunch Wednesday to Saturday, dinner Tuesday to Saturday. December tables go first.</p>
+      <div class="cta"><a class="btn solid" href="{BOOK}" target="_blank" rel="noopener">Book for December</a><a class="btn" href="menus.html">The menus</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="grid g-2">
+    {ph("private-party-1.jpg","The dining room set for a Christmas party","wide")}
+    <div>
+      <div class="chapter">Christmas parties</div>
+      <h2>The house, for your table only.</h2>
+      <p style="margin-top:20px">From a counter for six to the whole townhouse for twenty-five. Groups of up to six take the full tasting menu; from seven, a six-course tasting or a seasonal three-course menu the host curates with Sébastien in advance.</p>
+      <div class="facts"><div>6 – 25<small>guests</small></div><div>3<small>ways to take the house</small></div></div>
+      <div class="cta"><a class="btn solid" href="mailto:info@musebytomaikens.co.uk?subject=Christmas%20party%20at%20Muse">Enquire for December</a><a class="btn" href="private-hire.html">Private hire</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="tint">
+  <div class="grid g-21">
+    <div>
+      <div class="chapter">The Muse Christmas Hamper</div>
+      <h2>Christmas, in a box, from Tom.</h2>
+      <p style="margin-top:20px">The spirit of Muse packed for home. Delivery or collection from the mews from 17 December.</p>
+      <div class="index" style="columns:1;margin-top:34px">
+        <div><b>Vintage sloe gin</b><i>wild sloes, slowly matured</i></div>
+        <div><b>Elder &amp; blackberry cassis</b><i>foraged by Tom, infused and aged</i></div>
+        <div><b>Muse mince pies</b><i>Tom's aged mincemeat</i></div>
+        <div><b>Tom's whisky gummies</b><i>the classic</i></div>
+        <div><b>Brandy butter</b><i>a Christmas essential</i></div>
+        <div><b>Tom's tips &amp; tricks for Christmas</b><i>in the box</i></div>
+      </div>
+      <div class="cta"><a class="btn solid" href="https://tomaikens.co.uk/?p=20029" target="_blank" rel="noopener">Order the hamper</a></div>
+    </div>
+    {ph("culinary-creators.jpg","Sourdough, preserves and mince pies","tall")}
+  </div>
+</section>
+
+<section>
+  <div class="grid g-2" style="align-items:center">
+    <div><div class="chapter">Gift vouchers</div><h2>Give someone a night at the counter.</h2></div>
+    <div><p class="lede">A tasting menu, a lunch, or a sum towards either — sent by email, valid for a year. The present that arrives on time.</p><div class="cta"><a class="btn solid" href="{VOUCH}" target="_blank" rel="noopener">Buy a voucher</a></div></div>
+  </div>
+</section>
+""")
+
+OGIMG = {"index.html":"img/kitchen-counter.jpg","about.html":"img/tom.jpg","menus.html":"img/img1.jpg","whats-on.html":"img/kitchen-counter.jpg","private-hire.html":"img/private-party-1.jpg","suppliers.html":"img/provenance.jpg","gallery.html":"img/dining-area.jpg","press.html":"img/drinks-cab.jpg","contact.html":"img/muse-building.jpg","christmas.html":"img/dining-area.jpg"}
 for fname,(title,desc,body) in PAGES.items():
     with open(os.path.join(OUT,fname),"w") as f:
         f.write(head(title,desc,fname,OGIMG.get(fname,"img/kitchen-counter.jpg"),schema=fname in ("index.html","contact.html"))+header(fname)+body+FOOTER)
